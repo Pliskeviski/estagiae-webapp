@@ -1,11 +1,12 @@
+import { NextPage } from 'next';
 import { PageWrapper } from 'src/components/page-wrapper';
 
-export const Login = () => {
+const Login: NextPage = () => {
   return (
     <PageWrapper title="Login">
       <h1
         style={{
-          fontFamily: 'Roboto',
+          fontFamily: 'PlusJakarta',
         }}
       >
         Login
