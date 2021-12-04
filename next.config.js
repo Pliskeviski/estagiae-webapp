@@ -18,6 +18,10 @@ module.exports = withImages(
           source: '/api/:path*',
           destination: `${process.env.API_URL}/:path*`,
         },
+        {
+          source: '/vagas',
+          destination: '/jobs-list',
+        },
       ];
     },
   })

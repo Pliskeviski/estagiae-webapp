@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import { memo } from 'react';
 import Head from 'next/head';
+import { Header } from '../header';
 
 export interface IPageWrapperProps {
   children: React.ReactNode;
@@ -38,6 +39,7 @@ export const PageWrapper = memo(({ title, children }: IPageWrapperProps) => {
           key="viewport"
         />
       </Head>
+      <Header />
       {children}
     </>
   );
