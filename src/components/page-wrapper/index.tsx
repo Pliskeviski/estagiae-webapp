@@ -21,7 +21,7 @@ export const PageWrapper = memo(({ title, children }: IPageWrapperProps) => {
           crossOrigin="true"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;900&display=swap"
           rel="stylesheet"
         />
         <link rel="icon" href="/favicon.ico" key="favicon" />,
@@ -31,6 +31,10 @@ export const PageWrapper = memo(({ title, children }: IPageWrapperProps) => {
         />
         <link
           href="https://estagiae-storage.sfo3.cdn.digitaloceanspaces.com/fonts/PlusJakarta/PlusJakarta.css"
+          rel="stylesheet"
+        />
+        <link
+          href="https://estagiae-storage.sfo3.cdn.digitaloceanspaces.com/fonts/Gilroy/Gilroy.css"
           rel="stylesheet"
         />
         <meta

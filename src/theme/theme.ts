@@ -2,14 +2,14 @@ import { DefaultTheme } from 'styled-components';
 
 const Theme: DefaultTheme = {
   colors: {
-    primary: 'green',
+    primary: '#3f6cdf',
     red: '#d93131',
-    'gray-10': '#ededed',
+    'gray-10': '#f5f5f5',
     'gray-50': '#b6b6b6',
     'gray-80': '#171716',
   },
   fonts: {
-    primary: 'Poppins, sans-serif',
+    primary: 'Gilroy, sans-serif',
     secondary: 'PlusJakarta, sans-serif',
     tertiary: 'Nunito, sans-serif',
   },

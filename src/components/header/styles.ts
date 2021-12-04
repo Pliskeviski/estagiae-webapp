@@ -12,6 +12,8 @@ export const HeaderContainer = styled.header`
 export const LogoContent = styled.div`
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-weight: bold;
+  font-size: ${({ theme }) => theme.fontSizes.body.large};
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 type LinksContainer = {
@@ -25,7 +27,7 @@ export const LinksContainer = styled.div<LinksContainer>`
 
 export const LinkItem = styled.a`
   text-decoration: none;
-  font-family: ${({ theme }) => theme.fonts.tertiary};
+  font-family: ${({ theme }) => theme.fonts.secondary};
   font-weight: bold;
-  color: ${({ theme }) => theme.colors['gray-80']};
+  color: ${({ theme }) => theme.colors.primary};
 `;
