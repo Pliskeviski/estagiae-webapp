@@ -21,7 +21,7 @@ export const ContainerJobsHeader = styled.div`
 
 export const TitleContainer = styled.h3`
   font-weight: normal;
-  font-size: ${({ theme }) => theme.fontSizes.h3};
+  font-size: ${({ theme }) => theme.fontSizes.h5};
 `;
 
 export const AmountOfJobs = styled.span`

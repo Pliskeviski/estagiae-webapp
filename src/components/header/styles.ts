@@ -30,4 +30,5 @@ export const LinkItem = styled.a`
   font-family: ${({ theme }) => theme.fonts.secondary};
   font-weight: bold;
   color: ${({ theme }) => theme.colors.primary};
+  font-size: ${({ theme }) => theme.fontSizes.body.small};
 `;

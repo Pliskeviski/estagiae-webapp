@@ -18,7 +18,7 @@ declare module 'styled-components' {
     };
 
     fontSizes: {
-      h3: string;
+      h5: string;
       body: {
         large: string;
         medium: string;
