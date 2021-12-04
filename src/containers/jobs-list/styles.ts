@@ -1,8 +1,8 @@
+import { LimitedContainerCss } from 'src/theme/globalStyles';
 import styled from 'styled-components';
 
 export const ContainerJobList = styled.section`
-  width: 100%;
-  max-width: ${({ theme }) => theme.containers.large};
+  ${LimitedContainerCss};
   margin: 0 auto;
   margin-top: 3rem;
   display: grid;
@@ -20,9 +20,8 @@ export const ContainerJobsHeader = styled.div`
 `;
 
 export const TitleContainer = styled.h3`
-  font-weight: bold;
-  font-family: ${({ theme }) => theme.fonts.tertiary};
-  font-size: ${({ theme }) => theme.fontSizes.body.large};
+  font-weight: normal;
+  font-size: ${({ theme }) => theme.fontSizes.h3};
 `;
 
 export const AmountOfJobs = styled.span`
@@ -35,6 +34,8 @@ export const OrderByContainer = styled.div`
   margin-left: auto;
   font-size: ${({ theme }) => theme.fontSizes.body.small};
   font-weight: bold;
+  display: flex;
+  align-items: center;
 `;
 
 export const OrderByLabel = styled.div`
@@ -45,5 +46,5 @@ export const OrderByLabel = styled.div`
 
 export const OrderedByValue = styled.div`
   color: ${({ theme }) => theme.colors.primary};
-  margin-left: 0.2rem;
+  margin-left: 0.4rem;
 `;

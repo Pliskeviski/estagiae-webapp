@@ -18,6 +18,7 @@ declare module 'styled-components' {
     };
 
     fontSizes: {
+      h3: string;
       body: {
         large: string;
         medium: string;
@@ -27,6 +28,10 @@ declare module 'styled-components' {
     };
 
     containers: {
+      large: string;
+    };
+
+    breakpoints: {
       large: string;
     };
   }

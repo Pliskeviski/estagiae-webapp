@@ -13,6 +13,10 @@ import {
 } from './styles';
 
 export const JobsListContainer = React.memo(() => {
+  const RenderJobs = () => {
+    return null;
+  };
+
   return (
     <>
       <Search />
@@ -23,13 +27,15 @@ export const JobsListContainer = React.memo(() => {
         <ContainerJobs>
           <ContainerJobsHeader>
             <TitleContainer>
-              Vagas <AmountOfJobs>640</AmountOfJobs>
+              Resultados <AmountOfJobs>640</AmountOfJobs>
             </TitleContainer>
             <OrderByContainer>
               <OrderByLabel>Ordernar por </OrderByLabel>
               <OrderedByValue>Criação</OrderedByValue>
             </OrderByContainer>
           </ContainerJobsHeader>
+
+          <RenderJobs />
         </ContainerJobs>
       </ContainerJobList>
     </>

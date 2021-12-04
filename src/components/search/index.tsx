@@ -1,6 +1,5 @@
 import { FiSearch } from 'react-icons/fi';
 import { RiMapPin5Line } from 'react-icons/ri';
-import { MdWorkOutline } from 'react-icons/md';
 
 import {
   ContainerInput,
@@ -22,7 +21,7 @@ export const Search = () => {
         </ContainerInput>
 
         <ContainerInput>
-          <StyledInput placeholder="Areas de atuação" icon={MdWorkOutline} />
+          <StyledInput placeholder="Areas de atuação" />
         </ContainerInput>
       </SearchLimitedContainer>
     </SearchContainer>

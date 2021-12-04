@@ -24,7 +24,7 @@ export const StyledInput = styled.input<StyledInputType>`
   ${({ extraPaddingLeft }) =>
     extraPaddingLeft &&
     css`
-      padding-left: 2.2rem;
+      padding-left: 2.2rem !important;
     `}
 
   transition: all 0.2s;

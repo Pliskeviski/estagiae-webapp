@@ -11,17 +11,21 @@ const Theme: DefaultTheme = {
   fonts: {
     primary: 'Gilroy, sans-serif',
     secondary: 'PlusJakarta, sans-serif',
-    tertiary: 'Nunito, sans-serif',
+    tertiary: 'Poppins, sans-serif',
   },
   fontSizes: {
+    h3: '1.4rem',
     body: {
       large: '1.25rem',
-      medium: '0.85rem',
-      small: '0.6rem',
+      medium: '1rem',
+      small: '0.8rem',
     },
     caption: '0.6rem',
   },
   containers: {
+    large: '1100px',
+  },
+  breakpoints: {
     large: '1200px',
   },
 };
