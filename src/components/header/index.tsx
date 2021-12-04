@@ -29,7 +29,6 @@ export const Header = () => {
           </Link>
         ))}
       </LinksContainer>
-      <div />
     </HeaderContainer>
   );
 };

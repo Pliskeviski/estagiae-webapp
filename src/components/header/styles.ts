@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.header`
   width: 100%;
   max-width: ${({ theme }) => theme.containers.lg};
-  padding: 1.5rem 0;
+  padding: 1.8rem 0;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
