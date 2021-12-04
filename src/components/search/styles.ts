@@ -10,7 +10,7 @@ export const SearchContainer = styled.div`
 
 export const SearchLimitedContainer = styled.div`
   width: 100%;
-  max-width: ${({ theme }) => theme.containers.lg};
+  max-width: ${({ theme }) => theme.containers.large};
   margin: 0 auto;
 
   display: flex;

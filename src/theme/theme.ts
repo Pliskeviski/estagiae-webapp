@@ -15,14 +15,14 @@ const Theme: DefaultTheme = {
   },
   fontSizes: {
     body: {
-      large: '1.4rem',
+      large: '1.25rem',
       medium: '0.85rem',
       small: '0.6rem',
     },
     caption: '0.6rem',
   },
   containers: {
-    lg: '1200px',
+    large: '1200px',
   },
 };
 

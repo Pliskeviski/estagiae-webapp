@@ -27,7 +27,7 @@ declare module 'styled-components' {
     };
 
     containers: {
-      lg: string;
+      large: string;
     };
   }
 }

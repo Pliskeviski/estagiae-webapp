@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
   width: 100%;
-  max-width: ${({ theme }) => theme.containers.lg};
+  max-width: ${({ theme }) => theme.containers.large};
   padding: 1.8rem 0;
   margin: 0 auto;
   display: flex;
