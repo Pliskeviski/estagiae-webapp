@@ -1,10 +1,13 @@
 import React, { useMemo } from 'react';
 import { IJobPreview } from 'src/interfaces/job-preview.interface';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FiExternalLink } from 'react-icons/fi';
 
 import {
   BadgesContainer,
   CompanyLogoContainer,
+  ContainerButtons,
   DescriptionText,
   ItemBadge,
   JobCardContainer,
@@ -12,6 +15,7 @@ import {
   JobCardTitle,
   LocationText,
 } from './styles';
+import { Button } from '../button';
 
 interface IJobCardProps {
   job: IJobPreview;
@@ -88,6 +92,15 @@ export const JobCard = React.memo(({ job }: IJobCardProps) => {
       <LocationText>{job.location}</LocationText>
 
       <DescriptionText>{job.description}</DescriptionText>
+
+      <ContainerButtons>
+        <a href={job.externalUrl} target="_blank" rel="noreferrer">
+          <Button>
+            Aplicar <FiExternalLink />
+          </Button>
+        </a>
+        <Button variant="secondary">Detalhes</Button>
+      </ContainerButtons>
     </JobCardContainer>
   );
 });

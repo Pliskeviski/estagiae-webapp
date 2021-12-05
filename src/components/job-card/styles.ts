@@ -4,8 +4,9 @@ export const JobCardContainer = styled.div`
   padding: 1.5rem 2rem;
   background-color: ${({ theme }) => theme.colors['light-blue']};
   border-radius: 0.5rem;
-  height: max-content;
   border-radius: 0.2rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const JobCardHeader = styled.div`
@@ -62,4 +63,15 @@ export const DescriptionText = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.body.small};
   color: ${({ theme }) => theme.colors['gray-50']};
   font-weight: 500;
+`;
+
+export const ContainerButtons = styled.div`
+  margin-top: auto;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+
+  svg {
+    margin-left: 0.2rem;
+  }
 `;
