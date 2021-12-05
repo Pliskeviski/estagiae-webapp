@@ -1,8 +1,93 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { IJobPreview } from 'src/interfaces/job-preview.interface';
+import Image from 'next/image';
 
-// Check on how we could create a custom hook for the infinity scroll and prefech data (ssr)
-// and example on how the libary SWR handles ssr https://swr.vercel.app/docs/with-nextjs
+import {
+  BadgesContainer,
+  CompanyLogoContainer,
+  DescriptionText,
+  ItemBadge,
+  JobCardContainer,
+  JobCardHeader,
+  JobCardTitle,
+  LocationText,
+} from './styles';
 
-export const JobCard = React.memo(() => {
-  return null;
+interface IJobCardProps {
+  job: IJobPreview;
+}
+
+interface IItemBadge {
+  label: string;
+  badgeColor: string;
+  textColor: string;
+}
+
+export const JobCard = React.memo(({ job }: IJobCardProps) => {
+  console.log('job', job);
+
+  const badges: IItemBadge[] = useMemo(() => {
+    const allBadges = [
+      {
+        label: job.jobType,
+        badgeColor: '#E8DCFB',
+        textColor: '#8D5EB9',
+      },
+    ];
+
+    const firstIndustry = job.industries[0];
+    const firstResponsibility = job.responsabilities.filter(
+      (x) => x.length < 26
+    )[0];
+
+    if (firstIndustry && firstIndustry.length <= 26) {
+      allBadges.push({
+        label: firstIndustry,
+        badgeColor: '#D8F4E8',
+        textColor: '#79CAA5',
+      });
+    }
+
+    if (firstResponsibility) {
+      allBadges.push({
+        label: firstResponsibility,
+        badgeColor: '#DCEBFD',
+        textColor: '#6DA2C9',
+      });
+    }
+
+    return allBadges;
+  }, [job.industries, job.jobType, job.responsabilities]);
+
+  return (
+    <JobCardContainer>
+      <JobCardHeader>
+        <CompanyLogoContainer>
+          <Image
+            src={job.companyImageUrl}
+            alt={job.companyName}
+            layout="fill"
+          />
+        </CompanyLogoContainer>
+      </JobCardHeader>
+
+      <JobCardTitle>{job.title}</JobCardTitle>
+
+      <BadgesContainer>
+        {badges.map((badge) => (
+          <ItemBadge
+            backgroundColor={badge.badgeColor}
+            textColor={badge.textColor}
+            key={`item-badge-${badge.label}`}
+          >
+            {badge.label}
+          </ItemBadge>
+        ))}
+      </BadgesContainer>
+
+      <LocationText>{job.location}</LocationText>
+
+      <DescriptionText>{job.description}</DescriptionText>
+    </JobCardContainer>
+  );
 });

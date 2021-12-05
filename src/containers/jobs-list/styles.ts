@@ -20,7 +20,7 @@ export const ContainerJobsHeader = styled.div`
 `;
 
 export const TitleContainer = styled.h3`
-  font-weight: normal;
+  font-weight: 500;
   font-size: ${({ theme }) => theme.fontSizes.h5};
 `;
 
@@ -47,4 +47,10 @@ export const OrderByLabel = styled.div`
 export const OrderedByValue = styled.div`
   color: ${({ theme }) => theme.colors.primary};
   margin-left: 0.4rem;
+`;
+
+export const JobsCardsList = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
 `;

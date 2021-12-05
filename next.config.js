@@ -12,6 +12,12 @@ module.exports = withImages(
     eslint: {
       ignoreDuringBuilds: true,
     },
+    images: {
+      domains: [
+        'media-exp1.licdn.com',
+        'estagiae-storage.sfo3.cdn.digitaloceanspaces.com',
+      ],
+    },
     async rewrites() {
       return [
         {

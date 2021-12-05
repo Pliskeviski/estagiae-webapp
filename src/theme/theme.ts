@@ -4,8 +4,10 @@ const Theme: DefaultTheme = {
   colors: {
     primary: '#3f6cdf',
     red: '#d93131',
+    'light-blue': '#fcfbff',
     'gray-10': '#f5f5f5',
     'gray-50': '#b6b6b6',
+    'gray-60': '#b0afb2',
     'gray-80': '#171716',
   },
   fonts: {
@@ -14,9 +16,9 @@ const Theme: DefaultTheme = {
     tertiary: 'Poppins, sans-serif',
   },
   fontSizes: {
-    h5: '1.2rem',
+    h5: '1.25rem',
     body: {
-      large: '1.25rem',
+      large: '1.2rem',
       medium: '1rem',
       small: '0.8rem',
     },
