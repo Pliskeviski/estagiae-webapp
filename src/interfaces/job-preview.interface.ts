@@ -2,7 +2,7 @@ export interface IJobPreview {
   id: string;
   title: string;
   description: string;
-  postedAt: Date;
+  postedAt: string;
   remoteAllowed: boolean;
   externalUrl: string;
   companyName: string;

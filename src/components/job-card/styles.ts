@@ -78,4 +78,11 @@ export const ContainerButtons = styled.div`
   }
 `;
 
-export const JobSourceIconContainer = styled.div``;
+export const JobSourceIconContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-right: 0.5rem;
+  }
+`;

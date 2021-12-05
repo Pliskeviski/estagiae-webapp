@@ -5,6 +5,16 @@ import { FiExternalLink } from 'react-icons/fi';
 import { BsLinkedin } from 'react-icons/bs';
 
 import {
+  parseISO,
+  format,
+  formatRelative,
+  formatDistance,
+  intervalToDuration,
+} from 'date-fns';
+
+import { pt } from 'date-fns/locale';
+
+import {
   BadgesContainer,
   CompanyLogoContainer,
   ContainerButtons,
@@ -30,6 +40,29 @@ interface IItemBadge {
 
 export const JobCard = React.memo(({ job }: IJobCardProps) => {
   console.log('job', job);
+
+  const formattedDate = useMemo(() => {
+    try {
+      const date = parseISO(job.postedAt);
+
+      const interval = intervalToDuration({
+        start: date,
+        end: new Date(),
+      });
+
+      if (interval.months > 0) {
+        return 'Mais de um mês';
+      }
+
+      const relative = formatDistance(date, new Date(), {
+        locale: pt,
+      });
+      return relative;
+    } catch (error) {
+      console.log(error);
+      return '';
+    }
+  }, [job.postedAt]);
 
   const badges: IItemBadge[] = useMemo(() => {
     const allBadges = [
@@ -76,6 +109,7 @@ export const JobCard = React.memo(({ job }: IJobCardProps) => {
         </CompanyLogoContainer>
 
         <JobSourceIconContainer>
+          <span>{formattedDate}</span>
           <BsLinkedin />
         </JobSourceIconContainer>
       </JobCardHeader>
