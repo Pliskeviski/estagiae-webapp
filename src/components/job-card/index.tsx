@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { IJobPreview } from 'src/interfaces/job-preview.interface';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FiExternalLink } from 'react-icons/fi';
+import { BsLinkedin } from 'react-icons/bs';
 
 import {
   BadgesContainer,
@@ -13,6 +13,7 @@ import {
   JobCardContainer,
   JobCardHeader,
   JobCardTitle,
+  JobSourceIconContainer,
   LocationText,
 } from './styles';
 import { Button } from '../button';
@@ -73,6 +74,10 @@ export const JobCard = React.memo(({ job }: IJobCardProps) => {
             layout="fill"
           />
         </CompanyLogoContainer>
+
+        <JobSourceIconContainer>
+          <BsLinkedin />
+        </JobSourceIconContainer>
       </JobCardHeader>
 
       <JobCardTitle>{job.title}</JobCardTitle>

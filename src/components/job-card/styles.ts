@@ -11,6 +11,8 @@ export const JobCardContainer = styled.div`
 
 export const JobCardHeader = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const CompanyLogoContainer = styled.div`
@@ -75,3 +77,5 @@ export const ContainerButtons = styled.div`
     margin-left: 0.2rem;
   }
 `;
+
+export const JobSourceIconContainer = styled.div``;
