@@ -30,6 +30,7 @@ const Theme: DefaultTheme = {
   },
   breakpoints: {
     large: '1200px',
+    medium: '768px',
   },
 };
 

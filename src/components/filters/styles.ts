@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 export const ContainerFilters = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 export const SectionFilter = styled.div`

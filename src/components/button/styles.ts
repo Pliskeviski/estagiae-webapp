@@ -31,6 +31,8 @@ export const StyledButton = styled.button<IStyledButton>`
     theme.colors[backgroundColor || 'primary']};
   color: ${({ theme, textColor }) => theme.colors[textColor || 'gray-90']};
   cursor: pointer;
+  font-size: ${({ theme }) => theme.fontSizes.body.small};
+
   ${({ theme, borderColor }) =>
     borderColor &&
     css`

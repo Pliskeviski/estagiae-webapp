@@ -8,6 +8,11 @@ export const ContainerJobList = styled.section`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: 1rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    grid-template-columns: 1fr;
+    margin-top: 0;
+  }
 `;
 
 export const ContainerFilterDetails = styled.div``;
@@ -23,6 +28,10 @@ export const TitleContainer = styled.h3`
   font-weight: 500;
   font-size: ${({ theme }) => theme.fontSizes.h5};
   margin-bottom: 2rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    margin-bottom: 1rem;
+  }
 `;
 
 export const AmountOfJobs = styled.span`
@@ -37,6 +46,9 @@ export const OrderByContainer = styled.div`
   font-weight: bold;
   display: flex;
   align-items: center;
+  margin-bottom: 0.8rem;
+  height: auto;
+  align-self: center;
 `;
 
 export const OrderByLabel = styled.div`
@@ -54,4 +66,12 @@ export const JobsCardsList = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    grid-template-columns: 1fr;
+  }
 `;

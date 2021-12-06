@@ -1,5 +1,6 @@
 import { FiSearch } from 'react-icons/fi';
 import { RiMapPin5Line } from 'react-icons/ri';
+import { CgBriefcase } from 'react-icons/cg';
 
 import {
   ContainerInput,
@@ -21,7 +22,7 @@ export const Search = () => {
         </ContainerInput>
 
         <ContainerInput>
-          <StyledInput placeholder="Areas de atuação" />
+          <StyledInput placeholder="Areas de atuação" icon={CgBriefcase} />
         </ContainerInput>
       </SearchLimitedContainer>
     </SearchContainer>

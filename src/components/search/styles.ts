@@ -13,6 +13,10 @@ export const SearchLimitedContainer = styled(LimitedContainer)`
   margin: 0 auto;
 
   display: flex;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    flex-direction: column;
+  }
 `;
 
 export const StyledInput = styled(Input)`
@@ -28,6 +32,11 @@ export const ContainerInput = styled.div`
   flex: 1;
 
   &:last-child {
+    border-right: none;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    margin-right: 0;
     border-right: none;
   }
 `;

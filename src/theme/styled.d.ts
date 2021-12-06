@@ -36,6 +36,7 @@ declare module 'styled-components' {
 
     breakpoints: {
       large: string;
+      medium: string;
     };
   }
 }

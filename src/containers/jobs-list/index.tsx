@@ -49,7 +49,7 @@ const RenderJobs = React.memo(() => {
         // pullDownToRefreshThreshold={50}
         // pullDownToRefreshContent={
         //   <h3 style={{ textAlign: 'center', userSelect: 'none' }}>
-        //     &#8595; Pull down to refresh
+        //     &#8b5e9b54; Pull down to refresh
         //   </h3>
         // }
         // releaseToRefreshContent={
