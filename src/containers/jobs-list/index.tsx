@@ -1,5 +1,6 @@
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { Filters } from 'src/components/filters';
 import { JobCard } from 'src/components/job-card';
 import { Search } from 'src/components/search';
 import { useInfinityScroll } from 'src/hooks/useInfinityScroll';
@@ -30,7 +31,7 @@ const RenderJobs = React.memo(() => {
     <>
       <ContainerJobsHeader>
         <TitleContainer>
-          Resultados {total > 0 && <AmountOfJobs>{640}</AmountOfJobs>}
+          Resultados {total > 0 && <AmountOfJobs>{total}</AmountOfJobs>}
         </TitleContainer>
         <OrderByContainer>
           <OrderByLabel>Ordernar por </OrderByLabel>
@@ -43,19 +44,19 @@ const RenderJobs = React.memo(() => {
         next={onLoadMore}
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
-        refreshFunction={onReset}
-        pullDownToRefresh
-        pullDownToRefreshThreshold={50}
-        pullDownToRefreshContent={
-          <h3 style={{ textAlign: 'center', userSelect: 'none' }}>
-            &#8595; Pull down to refresh
-          </h3>
-        }
-        releaseToRefreshContent={
-          <h3 style={{ textAlign: 'center', userSelect: 'none' }}>
-            &#8593; Release to refresh
-          </h3>
-        }
+        // refreshFunction={onReset}
+        // pullDownToRefresh
+        // pullDownToRefreshThreshold={50}
+        // pullDownToRefreshContent={
+        //   <h3 style={{ textAlign: 'center', userSelect: 'none' }}>
+        //     &#8595; Pull down to refresh
+        //   </h3>
+        // }
+        // releaseToRefreshContent={
+        //   <h3 style={{ textAlign: 'center', userSelect: 'none' }}>
+        //     &#8593; Release to refresh
+        //   </h3>
+        // }
       >
         <JobsCardsList>
           {jobs.map((job) => (
@@ -74,7 +75,10 @@ export const JobsListContainer = React.memo(() => {
       <ContainerJobList>
         <ContainerFilterDetails>
           <TitleContainer>Filtros</TitleContainer>
+
+          <Filters />
         </ContainerFilterDetails>
+
         <ContainerJobs>
           <RenderJobs />
         </ContainerJobs>

@@ -4,13 +4,7 @@ import Image from 'next/image';
 import { FiExternalLink } from 'react-icons/fi';
 import { BsLinkedin } from 'react-icons/bs';
 
-import {
-  parseISO,
-  format,
-  formatRelative,
-  formatDistance,
-  intervalToDuration,
-} from 'date-fns';
+import { parseISO, formatDistance, intervalToDuration } from 'date-fns';
 
 import { pt } from 'date-fns/locale';
 
@@ -39,8 +33,6 @@ interface IItemBadge {
 }
 
 export const JobCard = React.memo(({ job }: IJobCardProps) => {
-  console.log('job', job);
-
   const formattedDate = useMemo(() => {
     try {
       const date = parseISO(job.postedAt);
@@ -58,8 +50,7 @@ export const JobCard = React.memo(({ job }: IJobCardProps) => {
         locale: pt,
       });
       return relative;
-    } catch (error) {
-      console.log(error);
+    } catch {
       return '';
     }
   }, [job.postedAt]);

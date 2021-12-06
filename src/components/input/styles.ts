@@ -17,7 +17,7 @@ export const StyledInput = styled.input<StyledInputType>`
   font-family: ${({ theme }) => theme.fonts.primary};
   padding: 0.8rem 1rem;
   border-radius: 12px;
-  font-size: ${({ theme }) => theme.fontSizes.body.medium};
+  font-size: ${({ theme }) => theme.fontSizes.body.small};
   color: ${({ theme }) => theme.colors['gray-80']};
   width: 100%;
 
@@ -38,7 +38,7 @@ export const StyledInput = styled.input<StyledInputType>`
   ::placeholder {
     font-family: inherit;
     color: ${({ theme }) => theme.colors['gray-50']};
-    font-size: ${({ theme }) => theme.fontSizes.body.medium};
+    font-size: ${({ theme }) => theme.fontSizes.body.small};
   }
 `;
 
