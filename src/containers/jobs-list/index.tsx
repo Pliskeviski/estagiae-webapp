@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Filters } from 'src/components/filters';
 import { JobCard } from 'src/components/job-card';
 import { Search } from 'src/components/search';
-import { useInfinityScroll } from 'src/hooks/useInfinityScroll';
 import { IJobPreview } from 'src/interfaces/job-preview.interface';
-import { getJobsList } from 'src/services/job.service';
+import useJobsListStore from 'src/stores/jobs-list.store';
 import {
   AmountOfJobs,
   ContainerFilterDetails,
@@ -20,12 +19,16 @@ import {
 } from './styles';
 
 const RenderJobs = React.memo(() => {
-  const { onLoadMore, onReset, items, hasMore, hasError, total } =
-    useInfinityScroll({
-      loadMore: getJobsList,
-    });
+  const { onLoadMore, onReset, items, hasMore, hasError, page, total } =
+    useJobsListStore();
 
   const jobs: IJobPreview[] = items;
+
+  useEffect(() => {
+    if (page === 0) {
+      onLoadMore();
+    }
+  }, [page]);
 
   return (
     <>
@@ -49,7 +52,7 @@ const RenderJobs = React.memo(() => {
         // pullDownToRefreshThreshold={50}
         // pullDownToRefreshContent={
         //   <h3 style={{ textAlign: 'center', userSelect: 'none' }}>
-        //     &#8b5e9b54; Pull down to refresh
+        //     Pull down to refresh
         //   </h3>
         // }
         // releaseToRefreshContent={
