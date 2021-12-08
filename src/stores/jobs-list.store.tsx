@@ -51,7 +51,7 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
 
     const { data, hasMore, total, filterSections } = await getJobsList({
       page: nextPage,
-      size: 10,
+      size: 12,
       ...filters,
     });
 

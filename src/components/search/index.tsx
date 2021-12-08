@@ -1,6 +1,7 @@
 import { FiSearch } from 'react-icons/fi';
 import { RiMapPin5Line } from 'react-icons/ri';
 import { CgBriefcase } from 'react-icons/cg';
+import { useCompany } from 'src/hooks/useCompany';
 
 import {
   ContainerInput,
@@ -8,8 +9,11 @@ import {
   SearchLimitedContainer,
   StyledInput,
 } from './styles';
+import { SelectInput } from '../select-input';
 
 export const Search = () => {
+  const { loadOptions, isLoadingData } = useCompany(false);
+
   return (
     <SearchContainer>
       <SearchLimitedContainer>
@@ -22,7 +26,13 @@ export const Search = () => {
         </ContainerInput>
 
         <ContainerInput>
-          <StyledInput placeholder="Empresa" icon={CgBriefcase} />
+          <SelectInput
+            placeholder="Empresa"
+            loadOptions={loadOptions}
+            isLoading={isLoadingData}
+            icon={CgBriefcase}
+          />
+          {/* <StyledInput placeholder="Empresa" icon={CgBriefcase} /> */}
         </ContainerInput>
       </SearchLimitedContainer>
     </SearchContainer>

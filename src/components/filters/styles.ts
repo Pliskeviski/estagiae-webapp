@@ -57,4 +57,5 @@ export const ExpandButton = styled.button`
   display: flex;
   align-items: center;
   padding: 0;
+  margin-bottom: 1rem;
 `;
