@@ -75,3 +75,11 @@ export const JobsCardsList = styled.div`
     grid-template-columns: 1fr;
   }
 `;
+
+export const LoadingContainer = styled.div`
+  margin-top: 3rem;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;

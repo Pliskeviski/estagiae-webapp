@@ -26,7 +26,7 @@ const Theme: DefaultTheme = {
     caption: '0.6rem',
   },
   containers: {
-    large: '1100px',
+    large: '1250px',
   },
   breakpoints: {
     large: '1200px',

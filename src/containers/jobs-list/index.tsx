@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Filters } from 'src/components/filters';
 import { JobCard } from 'src/components/job-card';
+import { Loading } from 'src/components/loading';
 import { Search } from 'src/components/search';
 import { IJobPreview } from 'src/interfaces/job-preview.interface';
 import useJobsListStore from 'src/stores/jobs-list.store';
@@ -12,6 +13,7 @@ import {
   ContainerJobs,
   ContainerJobsHeader,
   JobsCardsList,
+  LoadingContainer,
   OrderByContainer,
   OrderByLabel,
   OrderedByValue,
@@ -46,7 +48,11 @@ const RenderJobs = React.memo(() => {
         dataLength={items.length}
         next={onLoadMore}
         hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
+        loader={
+          <LoadingContainer>
+            <Loading color="primary" />
+          </LoadingContainer>
+        }
         // refreshFunction={onReset}
         // pullDownToRefresh
         // pullDownToRefreshThreshold={50}
