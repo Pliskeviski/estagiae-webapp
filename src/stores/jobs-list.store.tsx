@@ -65,12 +65,12 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
             isExpanded: false,
             options: section.options.map((option) => {
               return {
-                label: option,
-                id: option,
+                label: option.label,
+                id: option.value,
                 selected: false,
               };
             }),
-          };
+          } as IFilterSection;
         }
       );
 

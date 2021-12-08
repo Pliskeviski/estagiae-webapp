@@ -1,6 +1,9 @@
 interface IPaginationFilterSection {
   label: string;
-  options: string[];
+  options: {
+    label: string;
+    value: number | string;
+  }[];
 }
 
 export interface IPaginatedResponse<T> {

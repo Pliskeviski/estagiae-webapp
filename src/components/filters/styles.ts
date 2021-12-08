@@ -2,15 +2,12 @@ import styled from 'styled-components';
 
 export const ContainerFilters = styled.div`
   width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 
   display: grid;
   grid-template-columns: 1fr;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 `;
 
@@ -34,6 +31,8 @@ export const FilterOptions = styled.div`
 
 export const FilterOptionContainer = styled.div`
   margin: 0.15rem 0;
+  display: flex;
+  align-items: center;
 `;
 
 export const FilterOptionLabel = styled.label`
@@ -41,6 +40,11 @@ export const FilterOptionLabel = styled.label`
   font-weight: 600;
   margin-left: 0.5rem;
   color: ${({ theme }) => theme.colors['gray-80']};
+
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const ExpandButton = styled.button`
