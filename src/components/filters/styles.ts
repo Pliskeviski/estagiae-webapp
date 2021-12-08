@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 export const ContainerFilters = styled.div`
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   display: grid;
   grid-template-columns: 1fr;
 
@@ -24,6 +29,7 @@ export const FilterOptions = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+  margin-bottom: 1rem;
 `;
 
 export const FilterOptionContainer = styled.div`
@@ -35,4 +41,16 @@ export const FilterOptionLabel = styled.label`
   font-weight: 600;
   margin-left: 0.5rem;
   color: ${({ theme }) => theme.colors['gray-80']};
+`;
+
+export const ExpandButton = styled.button`
+  background: none;
+  border: none;
+  font-size: ${({ theme }) => theme.fontSizes.body.small};
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors['gray-80']};
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
 `;

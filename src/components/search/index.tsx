@@ -22,7 +22,7 @@ export const Search = () => {
         </ContainerInput>
 
         <ContainerInput>
-          <StyledInput placeholder="Areas de atuação" icon={CgBriefcase} />
+          <StyledInput placeholder="Empresa" icon={CgBriefcase} />
         </ContainerInput>
       </SearchLimitedContainer>
     </SearchContainer>

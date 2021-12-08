@@ -32,7 +32,7 @@ export const Checkbox = ({
         type="checkbox"
         disabled={isDisabled}
         checked={checked}
-        onChange={onChange}
+        onChange={(e) => onChange && onChange(e)}
         className={className}
       />
       <LabelCheckbox onClick={handleOnClick} />

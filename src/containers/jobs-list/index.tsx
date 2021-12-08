@@ -28,7 +28,7 @@ const RenderJobs = React.memo(() => {
     if (page === 0) {
       onLoadMore();
     }
-  }, [page]);
+  }, [onLoadMore, page]);
 
   return (
     <>

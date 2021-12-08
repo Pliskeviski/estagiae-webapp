@@ -34,12 +34,17 @@ export const StyledCheckbox = styled.input`
   & + label:after {
     opacity: 0;
     transition: all 0.1s;
-    content: '✔';
+    content: ' ';
     position: absolute;
-    left: 50%;
-    top: 45%;
+    left: 30%;
+    top: 15%;
     transform: translate(-50%, -50%);
-    color: ${({ theme }) => theme.colors.white};
+    width: 5px;
+    height: 8px;
+    transform: rotate(45deg);
+
+    border-bottom: 2px solid ${({ theme }) => theme.colors.white};
+    border-right: 2px solid ${({ theme }) => theme.colors.white};
   }
 `;
 

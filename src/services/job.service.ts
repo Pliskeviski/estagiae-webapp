@@ -1,6 +1,9 @@
 import api from '@axios';
-import { ILoadMore, IPaginatedResponse } from 'src/hooks/useInfinityScroll';
 import { IJobPreview } from 'src/interfaces/job-preview.interface';
+import {
+  ILoadMore,
+  IPaginatedResponse,
+} from 'src/interfaces/pagination.interface';
 import { apiRoutes } from 'src/services/routes';
 
 export const getJobsList = (

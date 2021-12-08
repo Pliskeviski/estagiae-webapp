@@ -1,7 +1,10 @@
-import React, { useMemo } from 'react';
+import React, { useCallback } from 'react';
+import useJobsListStore from 'src/stores/jobs-list.store';
+import { HiMinusSm, HiPlusSm } from 'react-icons/hi';
 import { Checkbox } from '../checkbox';
 import {
   ContainerFilters,
+  ExpandButton,
   FilterOptionContainer,
   FilterOptionLabel,
   FilterOptions,
@@ -10,59 +13,73 @@ import {
 } from './styles';
 
 export const Filters = React.memo(() => {
-  const filterSections = useMemo(
-    () => [
-      {
-        id: 0,
-        title: 'Tipo',
-        options: [
-          {
-            id: 1,
-            name: 'Tempo Integral',
-          },
-          {
-            id: 2,
-            name: 'Estágio',
-          },
-          {
-            id: 3,
-            name: 'Meio Período',
-          },
-        ],
-      },
-      {
-        id: 1,
-        title: 'Empresa',
-        options: [
-          {
-            id: 1,
-            name: 'PicPay',
-          },
-          {
-            id: 2,
-            name: 'Enext',
-          },
-        ],
-      },
-    ],
-    []
+  const { onChangeFilters, filterSections, onToggleExpandedFilterSection } =
+    useJobsListStore(useCallback((state) => state, []));
+
+  const handleChangeFilter = useCallback(
+    (sectionId, optionId) => {
+      const newFilter = filterSections.map((section) => {
+        if (section.id === sectionId) {
+          return {
+            ...section,
+            options: section.options.map((option) => {
+              if (option.id === optionId) {
+                return {
+                  ...option,
+                  selected: !option.selected,
+                };
+              }
+              return option;
+            }),
+          };
+        }
+        return section;
+      });
+
+      onChangeFilters(newFilter);
+    },
+    [filterSections, onChangeFilters]
   );
 
   return (
     <ContainerFilters>
-      {filterSections.map((section) => (
-        <SectionFilter key={`section-filter-${section.id}`}>
-          <SectionFilterTitle>{section.title}</SectionFilterTitle>
-          <FilterOptions>
-            {section.options.map((option) => (
-              <FilterOptionContainer key={`option-${section.id}-${option.id}`}>
-                <Checkbox />
-                <FilterOptionLabel>{option.name}</FilterOptionLabel>
-              </FilterOptionContainer>
-            ))}
-          </FilterOptions>
-        </SectionFilter>
-      ))}
+      {filterSections.map((section) => {
+        const { id: sectionId, label, options, isExpanded } = section;
+
+        const maxAmountOfOptions = 4;
+
+        const availableOptions = isExpanded
+          ? options
+          : options.slice(0, maxAmountOfOptions);
+
+        const hasMoreOptions = options.length > maxAmountOfOptions;
+
+        return (
+          <SectionFilter key={`section-filter-${sectionId}`}>
+            <SectionFilterTitle>{label}</SectionFilterTitle>
+            <FilterOptions>
+              {availableOptions.map((option) => (
+                <FilterOptionContainer
+                  key={`option-${sectionId}-${option.id}`}
+                  onClick={() => handleChangeFilter(sectionId, option.id)}
+                >
+                  <Checkbox checked={option.selected} />
+                  <FilterOptionLabel>{option.label}</FilterOptionLabel>
+                </FilterOptionContainer>
+              ))}
+            </FilterOptions>
+
+            {hasMoreOptions && (
+              <ExpandButton
+                onClick={() => onToggleExpandedFilterSection(sectionId)}
+              >
+                {isExpanded ? <HiMinusSm /> : <HiPlusSm />}
+                {isExpanded ? 'Ver menos' : 'Ver mais'}
+              </ExpandButton>
+            )}
+          </SectionFilter>
+        );
+      })}
     </ContainerFilters>
   );
 });
