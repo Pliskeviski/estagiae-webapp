@@ -14,6 +14,8 @@ export const LogoContent = styled.div`
   font-weight: bold;
   font-size: ${({ theme }) => theme.fontSizes.body.large};
   color: ${({ theme }) => theme.colors.primary};
+  align-items: center;
+  display: flex;
 `;
 
 type LinksContainer = {
@@ -31,4 +33,11 @@ export const LinkItem = styled.a`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.primary};
   font-size: ${({ theme }) => theme.fontSizes.body.small};
+`;
+
+export const Logo = styled.img``;
+
+export const CompanyName = styled.span`
+  margin-left: 0.5rem;
+  font-size: ${({ theme }) => theme.fontSizes.caption};
 `;
