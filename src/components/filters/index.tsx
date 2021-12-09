@@ -13,8 +13,11 @@ import {
 } from './styles';
 
 export const Filters = React.memo(() => {
-  const { onChangeFilters, filterSections, onToggleExpandedFilterSection } =
-    useJobsListStore(useCallback((state) => state, []));
+  const {
+    onChangeFilterSections,
+    filterSections,
+    onToggleExpandedFilterSection,
+  } = useJobsListStore(useCallback((state) => state, []));
 
   const handleChangeFilter = useCallback(
     (sectionId, optionId) => {
@@ -36,9 +39,9 @@ export const Filters = React.memo(() => {
         return section;
       });
 
-      onChangeFilters(newFilter);
+      onChangeFilterSections(newFilter);
     },
-    [filterSections, onChangeFilters]
+    [filterSections, onChangeFilterSections]
   );
 
   return (

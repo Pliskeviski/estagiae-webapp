@@ -2,6 +2,7 @@ import create from 'zustand';
 import { IJobPreview } from 'src/interfaces/job-preview.interface';
 import { getJobsList } from 'src/services/job.service';
 import { v4 as uuidv4 } from 'uuid';
+import { IJobFilters } from 'src/interfaces/job-filters.interface';
 
 interface IFilterSection {
   label: string;
@@ -13,18 +14,20 @@ interface IFilterSection {
     selected: boolean;
   }[];
 }
+
 interface IJobsListState {
   items: IJobPreview[];
   hasMore: boolean;
   page: number;
   hasError: boolean;
   total: number;
-  filters: any;
+  filters: IJobFilters;
   filterSections: IFilterSection[];
   onReset: () => void;
   onLoadMore: () => void;
-  onChangeFilters: (filterSections: IFilterSection[]) => void;
+  onChangeFilterSections: (filterSections: IFilterSection[]) => void;
   onToggleExpandedFilterSection: (filterSectionsId: string) => void;
+  onUpdateFilters: (filters: Partial<IJobFilters>) => void;
 }
 
 const useJobsListStore = create<IJobsListState>((setState, getState) => ({
@@ -46,6 +49,7 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
   },
   onLoadMore: async () => {
     const { page, filters, filterSections: currentFilterSections } = getState();
+    console.log('onLoadMore');
 
     const nextPage = page + 1;
 
@@ -87,7 +91,7 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
       total,
     }));
   },
-  onChangeFilters: (filterSections: IFilterSection[]) => {
+  onChangeFilterSections: (filterSections: IFilterSection[]) => {
     setState((state) => ({
       ...state,
       filterSections,
@@ -112,6 +116,19 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
         filterSections,
       };
     });
+  },
+  onUpdateFilters: (filters: Partial<IJobFilters>) => {
+    setState((state) => ({
+      ...state,
+      filters: { ...state.filters, ...filters },
+      items: [],
+      hasMore: true,
+      hasError: false,
+      page: 0,
+      total: 0,
+    }));
+
+    // By setting the page to 0, the job list page will be reloaded
   },
 }));
 

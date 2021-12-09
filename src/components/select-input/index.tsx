@@ -30,8 +30,8 @@ const CustomOption = (props) => {
 interface ISelectInputProps {
   name?: string;
   options?: ISelectOption[];
-  value?: string;
-  onChange?: () => void;
+  value?: ISelectOption;
+  onChange?: (e) => void;
   openMenuOnClick?: boolean;
   menuPosition?: MenuPosition;
   isMulti?: boolean;
