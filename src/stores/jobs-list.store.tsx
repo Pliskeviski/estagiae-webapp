@@ -13,6 +13,7 @@ interface IJobsListState {
   total: number;
   filters: IJobFilters;
   filterSections: IFilterSection[];
+  isFetchingData: boolean;
   onReset: () => void;
   onLoadMore: () => void;
   onChangeFilterSections: (filterSections: IFilterSection[]) => void;
@@ -28,6 +29,7 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
   total: 0,
   filters: {},
   filterSections: [],
+  isFetchingData: false,
   onReset: () => {
     setState({
       items: [],
@@ -38,51 +40,66 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
     });
   },
   onLoadMore: async () => {
-    const { page, filters, filterSections: currentFilterSections } = getState();
+    const {
+      page,
+      filters,
+      filterSections: currentFilterSections,
+      isFetchingData,
+    } = getState();
+
+    if (isFetchingData) return;
 
     const nextPage = page + 1;
 
-    const { data, hasMore, total, filterSections } = await getJobsList(
-      {
-        page: nextPage,
-        size: 12,
-      },
-      filters,
-      currentFilterSections
-    );
+    setState({ isFetchingData: true });
 
-    // Filter options will only be available on the first page
-    if (filterSections?.length > 0 && currentFilterSections.length === 0) {
-      const mappedFilterSections: IFilterSection[] = filterSections.map(
-        (section) => {
-          return {
-            label: section.label,
-            type: section.type,
-            id: uuidv4(),
-            isExpanded: false,
-            options: section.options.map((option) => {
-              return {
-                label: option.label,
-                id: option.value,
-                selected: false,
-              };
-            }),
-          } as IFilterSection;
-        }
+    try {
+      const { data, hasMore, total, filterSections } = await getJobsList(
+        {
+          page: nextPage,
+          size: 12,
+        },
+        filters,
+        currentFilterSections
       );
 
-      setState({
-        filterSections: mappedFilterSections,
-      });
-    }
+      // Filter options will only be available on the first page
+      if (filterSections?.length > 0 && currentFilterSections.length === 0) {
+        const mappedFilterSections: IFilterSection[] = filterSections.map(
+          (section) => {
+            return {
+              label: section.label,
+              type: section.type,
+              id: uuidv4(),
+              isExpanded: false,
+              options: section.options.map((option) => {
+                return {
+                  label: option.label,
+                  id: option.value,
+                  selected: false,
+                };
+              }),
+            } as IFilterSection;
+          }
+        );
 
-    setState((state) => ({
-      ...state,
-      page: nextPage,
-      items: [...state.items, ...data],
-      hasMore,
-      total,
-    }));
+        setState({
+          filterSections: mappedFilterSections,
+        });
+      }
+
+      setState((state) => ({
+        ...state,
+        page: nextPage,
+        items: [...state.items, ...data],
+        hasMore,
+        total,
+        hasError: false,
+        isFetchingData: false,
+      }));
+    } catch {
+      setState({ hasError: false, isFetchingData: false });
+    }
   },
   onChangeFilterSections: (filterSections: IFilterSection[]) => {
     setState((state) => ({

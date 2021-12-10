@@ -83,3 +83,7 @@ export const LoadingContainer = styled.div`
   justify-content: center;
   width: 100%;
 `;
+
+export const EmptyMessage = styled.p`
+  text-align: center;
+`;

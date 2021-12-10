@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Filters } from 'src/components/filters';
@@ -12,6 +13,7 @@ import {
   ContainerJobList,
   ContainerJobs,
   ContainerJobsHeader,
+  EmptyMessage,
   JobsCardsList,
   LoadingContainer,
   OrderByContainer,
@@ -53,6 +55,11 @@ const RenderJobs = React.memo(() => {
             <Loading color="primary" />
           </LoadingContainer>
         }
+        endMessage={
+          <EmptyMessage>
+            {items.length === 0 && 'Nenhum resultado encontrado'}
+          </EmptyMessage>
+        }
         // refreshFunction={onReset}
         // pullDownToRefresh
         // pullDownToRefreshThreshold={50}
@@ -68,8 +75,8 @@ const RenderJobs = React.memo(() => {
         // }
       >
         <JobsCardsList>
-          {jobs.map((job) => (
-            <JobCard key={`job-${job.id}`} job={job} />
+          {jobs.map((job, index) => (
+            <JobCard key={`job-${job.id}-${index}`} job={job} />
           ))}
         </JobsCardsList>
       </InfiniteScroll>

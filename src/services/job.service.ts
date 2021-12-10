@@ -41,7 +41,7 @@ export const getJobsList = (
   const industries = filterSections
     .find((x) => x.type === 0)
     ?.options?.filter((x) => x.selected)
-    .map((x) => x.label);
+    .map((x) => x.id);
 
   if (industries?.length > 0) {
     mappedParams = {
@@ -50,15 +50,15 @@ export const getJobsList = (
     };
   }
 
-  const resposabilities = filterSections
+  const responsabilities = filterSections
     .find((x) => x.type === 1)
     ?.options?.filter((x) => x.selected)
-    .map((x) => x.label);
+    .map((x) => x.id);
 
-  if (resposabilities?.length > 0) {
+  if (responsabilities?.length > 0) {
     mappedParams = {
       ...mappedParams,
-      resposabilities,
+      responsabilities,
     };
   }
 

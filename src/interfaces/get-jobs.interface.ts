@@ -7,5 +7,5 @@ export interface IGetJobsInterface {
   stateId?: string;
   cityId?: string;
   industries?: string[];
-  resposabilities?: string[];
+  responsabilities?: string[];
 }
