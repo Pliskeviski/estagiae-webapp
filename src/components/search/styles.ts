@@ -5,7 +5,7 @@ import { Input } from '../input';
 export const SearchContainer = styled.div`
   width: 100%;
   border-top: 1px solid ${({ theme }) => theme.colors['gray-10']};
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   box-shadow: rgb(227 227 227 / 20%) 0px 20px 24px;
 `;
 

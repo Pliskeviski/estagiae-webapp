@@ -16,15 +16,15 @@ import {
   EmptyMessage,
   JobsCardsList,
   LoadingContainer,
-  OrderByContainer,
-  OrderByLabel,
-  OrderedByValue,
+  // OrderByContainer,
+  // OrderByLabel,
+  // OrderedByValue,
   TitleContainer,
 } from './styles';
 
 const RenderJobs = React.memo(() => {
-  const { onLoadMore, onReset, items, hasMore, hasError, page, total } =
-    useJobsListStore();
+  // TODO: we need to handle the "hasError" state
+  const { onLoadMore, items, hasMore, page, total } = useJobsListStore();
 
   const jobs: IJobPreview[] = items;
 
@@ -40,10 +40,10 @@ const RenderJobs = React.memo(() => {
         <TitleContainer>
           Resultados {total > 0 && <AmountOfJobs>{total}</AmountOfJobs>}
         </TitleContainer>
-        <OrderByContainer>
+        {/* <OrderByContainer>
           <OrderByLabel>Ordernar por </OrderByLabel>
           <OrderedByValue>Criação</OrderedByValue>
-        </OrderByContainer>
+        </OrderByContainer> */}
       </ContainerJobsHeader>
 
       <InfiniteScroll

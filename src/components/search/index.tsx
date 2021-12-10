@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { RiMapPin5Line } from 'react-icons/ri';
 import { CgBriefcase } from 'react-icons/cg';
@@ -6,6 +6,7 @@ import { useCompany } from 'src/hooks/useCompany';
 import { useLocation } from 'src/hooks/useLocation';
 import { IJobFilters } from 'src/interfaces/job-filters.interface';
 import useJobsListStore from 'src/stores/jobs-list.store';
+import { useDebounce } from 'src/hooks/useDebounce';
 
 import {
   ContainerInput,
@@ -20,6 +21,8 @@ export const Search = () => {
     onUpdateFilters,
     filters: { company, location, text },
   } = useJobsListStore(useCallback((state) => state, []));
+  const [searchValue, setSearchValue] = useState(text);
+  const debouncedSearchValue = useDebounce(searchValue);
 
   const { loadOptions, isLoadingData } = useCompany(false);
   const {
@@ -38,6 +41,11 @@ export const Search = () => {
     [onUpdateFilters]
   );
 
+  useEffect(() => {
+    handleOnChangeFilter('text', debouncedSearchValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedSearchValue]);
+
   return (
     <SearchContainer>
       <SearchLimitedContainer>
@@ -45,9 +53,9 @@ export const Search = () => {
           <StyledInput
             placeholder="Procurar"
             icon={FiSearch}
-            value={text}
+            value={searchValue}
             onChange={(e) => {
-              handleOnChangeFilter('text', e.target.value);
+              setSearchValue(e.target.value);
             }}
           />
         </ContainerInput>
