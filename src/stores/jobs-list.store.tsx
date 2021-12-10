@@ -3,17 +3,7 @@ import { IJobPreview } from 'src/interfaces/job-preview.interface';
 import { getJobsList } from 'src/services/job.service';
 import { v4 as uuidv4 } from 'uuid';
 import { IJobFilters } from 'src/interfaces/job-filters.interface';
-
-interface IFilterSection {
-  label: string;
-  id: string;
-  isExpanded: boolean;
-  options: {
-    label: string;
-    id: string;
-    selected: boolean;
-  }[];
-}
+import { IFilterSection } from 'src/interfaces/filter-section.interface';
 
 interface IJobsListState {
   items: IJobPreview[];
@@ -49,15 +39,17 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
   },
   onLoadMore: async () => {
     const { page, filters, filterSections: currentFilterSections } = getState();
-    console.log('onLoadMore');
 
     const nextPage = page + 1;
 
-    const { data, hasMore, total, filterSections } = await getJobsList({
-      page: nextPage,
-      size: 12,
-      ...filters,
-    });
+    const { data, hasMore, total, filterSections } = await getJobsList(
+      {
+        page: nextPage,
+        size: 12,
+      },
+      filters,
+      currentFilterSections
+    );
 
     // Filter options will only be available on the first page
     if (filterSections?.length > 0 && currentFilterSections.length === 0) {
@@ -65,6 +57,7 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
         (section) => {
           return {
             label: section.label,
+            type: section.type,
             id: uuidv4(),
             isExpanded: false,
             options: section.options.map((option) => {

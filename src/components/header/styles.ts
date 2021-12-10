@@ -35,9 +35,11 @@ export const LinkItem = styled.a`
   font-size: ${({ theme }) => theme.fontSizes.body.small};
 `;
 
-export const Logo = styled.img``;
+export const Logo = styled.img`
+  width: ${({ theme }) => theme.fontSizes.body.large};
+`;
 
 export const CompanyName = styled.span`
   margin-left: 0.5rem;
-  font-size: ${({ theme }) => theme.fontSizes.caption};
+  font-size: ${({ theme }) => theme.fontSizes.body.small};
 `;

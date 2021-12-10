@@ -1,5 +1,6 @@
 interface IPaginationFilterSection {
   label: string;
+  type: number;
   options: {
     label: string;
     value: number | string;

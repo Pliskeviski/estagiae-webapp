@@ -6,31 +6,59 @@ import {
 } from 'src/interfaces/pagination.interface';
 import { IJobFilters } from 'src/interfaces/job-filters.interface';
 import { apiRoutes } from 'src/services/routes';
+import { IGetJobsInterface } from 'src/interfaces/get-jobs.interface';
+import { IFilterSection } from 'src/interfaces/filter-section.interface';
 
 export const getJobsList = (
-  params: ILoadMore & IJobFilters
+  loadMoreParams: ILoadMore,
+  filters: IJobFilters,
+  filterSections: IFilterSection[]
 ): Promise<IPaginatedResponse<IJobPreview>> => {
-  let mappedParams: any = {
-    page: params.page,
-    size: params.size,
-    search: params.text,
-    company: params.company?.value,
+  let mappedParams: IGetJobsInterface = {
+    page: loadMoreParams.page,
+    size: loadMoreParams.size,
+    search: filters.text,
+    company: filters.company?.value,
   };
 
-  if (params.location?.type === 0) {
+  if (filters.location?.type === 0) {
     mappedParams = {
       ...mappedParams,
-      countryId: params.location.value,
+      countryId: filters.location.value,
     };
-  } else if (params.location?.type === 1) {
+  } else if (filters.location?.type === 1) {
     mappedParams = {
       ...mappedParams,
-      stateId: params.location.value,
+      stateId: filters.location.value,
     };
-  } else if (params.location?.type === 2) {
+  } else if (filters.location?.type === 2) {
     mappedParams = {
       ...mappedParams,
-      cityId: params.location.value,
+      cityId: filters.location.value,
+    };
+  }
+
+  const industries = filterSections
+    .find((x) => x.type === 0)
+    ?.options?.filter((x) => x.selected)
+    .map((x) => x.label);
+
+  if (industries?.length > 0) {
+    mappedParams = {
+      ...mappedParams,
+      industries,
+    };
+  }
+
+  const resposabilities = filterSections
+    .find((x) => x.type === 1)
+    ?.options?.filter((x) => x.selected)
+    .map((x) => x.label);
+
+  if (resposabilities?.length > 0) {
+    mappedParams = {
+      ...mappedParams,
+      resposabilities,
     };
   }
 
