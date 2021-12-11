@@ -51,9 +51,9 @@ export const Filters = React.memo(() => {
 
         const maxAmountOfOptions = 4;
 
-        const availableOptions = isExpanded
-          ? options
-          : options.slice(0, maxAmountOfOptions);
+        // const availableOptions = isExpanded
+        //   ? options
+        //   : options.slice(0, maxAmountOfOptions);
 
         const hasMoreOptions = options.length > maxAmountOfOptions;
 
@@ -61,7 +61,7 @@ export const Filters = React.memo(() => {
           <SectionFilter key={`section-filter-${sectionId}`}>
             <SectionFilterTitle>{label}</SectionFilterTitle>
             <FilterOptions isExpanded={isExpanded}>
-              {availableOptions.map((option) => (
+              {options.map((option) => (
                 <FilterOptionContainer
                   key={`option-${sectionId}-${option.id}`}
                   onClick={() => handleChangeFilter(sectionId, option.id)}

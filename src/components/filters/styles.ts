@@ -30,15 +30,16 @@ export const FilterOptions = styled.div<IFilterOptions>`
   flex-direction: column;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  transition: all 0.2s 0.5s;
-  max-height: 160px;
-  overflow: auto;
+  transition: all 0.2s;
+  max-height: 100px;
+  overflow: hidden;
 
   ${({ isExpanded }) =>
     isExpanded &&
     css`
-      transition: all 0.2s 0s;
+      transition: all 0.2s;
       max-height: 360px;
+      overflow: overlay;
     `}
 `;
 
