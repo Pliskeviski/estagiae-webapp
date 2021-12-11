@@ -2,7 +2,7 @@
 import { memo } from 'react';
 import Head from 'next/head';
 import useJobsListStore from 'src/stores/jobs-list.store';
-import { generateJobsSchema } from 'src/seo/generateJobsSchema';
+import { generateCorporateSchema, generateJobsSchema } from 'src/seo/generateJobsSchema';
 import { Header } from '../header';
 
 export interface IPageWrapperProps {
@@ -46,6 +46,8 @@ export const PageWrapper = memo(({ title, children }: IPageWrapperProps) => {
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
           key="viewport"
         />
+        <script type="application/ld+json">{generateCorporateSchema()}</script>
+
         <script type="application/ld+json">
           {items.length > 0 && generateJobsSchema(items)}
         </script>
