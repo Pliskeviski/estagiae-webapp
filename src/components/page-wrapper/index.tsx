@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import { memo } from 'react';
 import Head from 'next/head';
+import Script from 'next/script';
+
 import useJobsListStore from 'src/stores/jobs-list.store';
 import {
   generateCorporateSchema,
@@ -57,6 +59,13 @@ export const PageWrapper = memo(({ title, children }: IPageWrapperProps) => {
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
           key="viewport"
         />
+        <script>
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-CMP10W89F9');`}
+        </script>
         <meta name="description" content={seoDescription} key="description" />
         <meta property="og:title" content={pageTitle} key="ogtitle" />
         <meta property="og:description" content={seoDescription} key="ogdesc" />
@@ -69,6 +78,10 @@ export const PageWrapper = memo(({ title, children }: IPageWrapperProps) => {
           https://www.netlify.com/blog/2020/05/08/improve-your-seo-and-social-sharing-cards-with-next.js/
         */}
       </Head>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-CMP10W89F9"
+      />
       <Header />
       {children}
     </>
