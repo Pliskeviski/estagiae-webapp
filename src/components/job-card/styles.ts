@@ -71,7 +71,7 @@ export const ContainerButtons = styled.div`
   margin-top: auto;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 
   svg {
     margin-left: 0.2rem;

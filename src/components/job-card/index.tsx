@@ -120,7 +120,7 @@ export const JobCard = React.memo(({ job }: IJobCardProps) => {
             Aplicar <FiExternalLink />
           </Button>
         </a>
-        <Button variant="secondary">Detalhes</Button>
+        {/* <Button variant="secondary">Detalhes</Button> */}
       </ContainerButtons>
     </JobCardContainer>
   );
