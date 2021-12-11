@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { FiExternalLink } from 'react-icons/fi';
 import { BsLinkedin } from 'react-icons/bs';
 
-import { parseISO, formatDistance, intervalToDuration } from 'date-fns';
+import { parseISO, formatDistanceToNowStrict } from 'date-fns';
 
 import { pt } from 'date-fns/locale';
 
@@ -37,16 +37,7 @@ export const JobCard = React.memo(({ job }: IJobCardProps) => {
     try {
       const date = parseISO(job.postedAt);
 
-      const interval = intervalToDuration({
-        start: date,
-        end: new Date(),
-      });
-
-      if (interval.months > 0) {
-        return 'Mais de um mês';
-      }
-
-      const relative = formatDistance(date, new Date(), {
+      const relative = formatDistanceToNowStrict(date, {
         locale: pt,
       });
       return relative;

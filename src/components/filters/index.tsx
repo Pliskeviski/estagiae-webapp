@@ -60,7 +60,7 @@ export const Filters = React.memo(() => {
         return (
           <SectionFilter key={`section-filter-${sectionId}`}>
             <SectionFilterTitle>{label}</SectionFilterTitle>
-            <FilterOptions>
+            <FilterOptions isExpanded={isExpanded}>
               {availableOptions.map((option) => (
                 <FilterOptionContainer
                   key={`option-${sectionId}-${option.id}`}

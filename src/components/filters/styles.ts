@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const ContainerFilters = styled.div`
   width: 200px;
@@ -22,11 +22,24 @@ export const SectionFilterTitle = styled.div`
   margin-top: 1.5rem;
 `;
 
-export const FilterOptions = styled.div`
+interface IFilterOptions {
+  isExpanded: boolean;
+}
+export const FilterOptions = styled.div<IFilterOptions>`
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  transition: all 0.2s 0.5s;
+  max-height: 160px;
+  overflow: auto;
+
+  ${({ isExpanded }) =>
+    isExpanded &&
+    css`
+      transition: all 0.2s 0s;
+      max-height: 360px;
+    `}
 `;
 
 export const FilterOptionContainer = styled.div`
