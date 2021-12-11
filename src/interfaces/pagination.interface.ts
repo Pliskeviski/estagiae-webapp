@@ -1,4 +1,4 @@
-interface IPaginationFilterSection {
+export interface IPaginationFilterSection {
   label: string;
   type: number;
   options: {

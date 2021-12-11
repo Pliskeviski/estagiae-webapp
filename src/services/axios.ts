@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-const api = axios.create();
+const isServerSide = typeof window === 'undefined';
+
+const api = axios.create({
+  baseURL: isServerSide ? process.env.API_URL : '/api',
+});
 
 api.interceptors.response.use(
   (response) => {

@@ -14,6 +14,7 @@ interface IJobsListState {
   filters: IJobFilters;
   filterSections: IFilterSection[];
   isFetchingData: boolean;
+  preFetchedData: any;
   onReset: () => void;
   onLoadMore: () => void;
   onChangeFilterSections: (filterSections: IFilterSection[]) => void;
@@ -30,6 +31,7 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
   filters: {},
   filterSections: [],
   isFetchingData: false,
+  preFetchedData: null,
   onReset: () => {
     setState({
       items: [],
@@ -45,6 +47,7 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
       filters,
       filterSections: currentFilterSections,
       isFetchingData,
+      preFetchedData,
     } = getState();
 
     if (isFetchingData) return;
@@ -54,14 +57,16 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
     setState({ isFetchingData: true });
 
     try {
-      const { data, hasMore, total, filterSections } = await getJobsList(
-        {
-          page: nextPage,
-          size: 12,
-        },
-        filters,
-        currentFilterSections
-      );
+      const { data, hasMore, total, filterSections } =
+        preFetchedData ||
+        (await getJobsList(
+          {
+            page: nextPage,
+            size: 12,
+          },
+          filters,
+          currentFilterSections
+        ));
 
       // Filter options will only be available on the first page
       if (filterSections?.length > 0 && currentFilterSections.length === 0) {
@@ -96,6 +101,7 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
         total,
         hasError: false,
         isFetchingData: false,
+        preFetchedData: null,
       }));
     } catch {
       setState({ hasError: false, isFetchingData: false });
@@ -141,5 +147,14 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
     // By setting the page to 0, the job list page will be reloaded
   },
 }));
+
+export const setJobsListStore = (initialState: Partial<IJobsListState>) => {
+  if (initialState) {
+    useJobsListStore.setState({
+      ...useJobsListStore.getState(),
+      ...initialState,
+    });
+  }
+};
 
 export default useJobsListStore;
