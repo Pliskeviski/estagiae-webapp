@@ -35,7 +35,11 @@ export const PageWrapper = memo(({ title, children }: IPageWrapperProps) => {
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="/favicon.ico" key="favicon" />,
+        <link
+          rel="icon"
+          href="https://estagiae-storage.sfo3.cdn.digitaloceanspaces.com/static/static/Logo%20Estagiae.svg"
+          key="favicon"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
           rel="stylesheet"
