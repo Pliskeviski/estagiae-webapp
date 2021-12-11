@@ -12,4 +12,8 @@ const Home: NextPage = () => {
   );
 };
 
+Home.getInitialProps = async (ctx) => {
+  ctx.res.writeHead(302, { Location: '/vagas' }).end();
+};
+
 export default Home;
