@@ -44,26 +44,37 @@ export const Filters = React.memo(() => {
     [filterSections, onChangeFilterSections]
   );
 
+  const handleOnToggleExpandedFilterSection = useCallback(
+    (sectionId, domId) => {
+      onToggleExpandedFilterSection(sectionId);
+
+      document.getElementById(domId).scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    },
+    [onToggleExpandedFilterSection]
+  );
+
   return (
     <ContainerFilters>
       {filterSections.map((section) => {
         const { id: sectionId, label, options, isExpanded } = section;
+        const localKey = `section-filter-${sectionId}`;
+        const optionsDomId = `options-section-filter-${sectionId}`;
 
         const maxAmountOfOptions = 4;
-
-        // const availableOptions = isExpanded
-        //   ? options
-        //   : options.slice(0, maxAmountOfOptions);
 
         const hasMoreOptions = options.length > maxAmountOfOptions;
 
         return (
-          <SectionFilter key={`section-filter-${sectionId}`}>
+          <SectionFilter key={localKey}>
             <SectionFilterTitle>{label}</SectionFilterTitle>
-            <FilterOptions isExpanded={isExpanded}>
+            <FilterOptions isExpanded={isExpanded} id={optionsDomId}>
               {options.map((option) => (
                 <FilterOptionContainer
                   key={`option-${sectionId}-${option.id}`}
+                  id={`option-${sectionId}-${option.id}`}
                   onClick={() => handleChangeFilter(sectionId, option.id)}
                 >
                   <Checkbox checked={option.selected} />
@@ -74,7 +85,9 @@ export const Filters = React.memo(() => {
 
             {hasMoreOptions && (
               <ExpandButton
-                onClick={() => onToggleExpandedFilterSection(sectionId)}
+                onClick={() =>
+                  handleOnToggleExpandedFilterSection(sectionId, optionsDomId)
+                }
               >
                 {isExpanded ? <HiMinusSm /> : <HiPlusSm />}
                 {isExpanded ? 'Ver menos' : 'Ver mais'}
