@@ -27,9 +27,10 @@ const JobsList: NextPage = ({
     setJobsListStore({
       preFetchedData: preLoadedJobs,
       preFetchedFilters: preLoadedFilters,
-      pageTitle: preLoadedFilters.title,
+      pageTitle: preLoadedFilters?.title,
+      page: preLoadedJobs?.page,
     });
-  }, [preLoadedJobs]);
+  }, [preLoadedJobs, preLoadedFilters]);
 
   return (
     <PageWrapper
@@ -43,9 +44,9 @@ const JobsList: NextPage = ({
 };
 
 export async function getServerSideProps(context) {
-  const filters = getFiltersByUrl(context?.query?.url);
-
   try {
+    const filters = getFiltersByUrl(context?.query?.url);
+
     const response = await getJobsList(
       {
         page: 1,

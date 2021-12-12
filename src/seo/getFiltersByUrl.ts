@@ -200,7 +200,7 @@ const availableRoutes = {
 };
 
 export const getFiltersByUrl = (url: string): IPrefetchedFilters => {
-  const routeFilters = availableRoutes[url];
+  const routeFilters = availableRoutes[url] as IPrefetchedFilters;
 
   if (!routeFilters) {
     return {

@@ -42,6 +42,8 @@ export const Search = () => {
   );
 
   useEffect(() => {
+    if (text === searchValue) return;
+
     handleOnChangeFilter('text', debouncedSearchValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearchValue]);

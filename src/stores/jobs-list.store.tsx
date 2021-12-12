@@ -55,6 +55,7 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
       isFetchingData,
       preFetchedData,
       preFetchedFilters,
+      pageTitle,
     } = getState();
 
     // Resets page title
@@ -63,6 +64,7 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
       window.history.replaceState({}, '', '/vagas');
     } else {
       hasClearedCustomTitleTick += 1;
+      document.title = `${pageTitle} - Estagiaê` || 'Vagas - Estagiaê';
     }
 
     if (isFetchingData) return;

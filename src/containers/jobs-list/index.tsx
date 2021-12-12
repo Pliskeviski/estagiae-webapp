@@ -35,10 +35,6 @@ const RenderJobs = React.memo(() => {
     }
   }, [onLoadMore, page]);
 
-  useEffect(() => {
-    document.title = `${pageTitle} - Estagiaê` || 'Vagas - Estagiaê';
-  }, [pageTitle]);
-
   return (
     <>
       <ContainerJobsHeader>
