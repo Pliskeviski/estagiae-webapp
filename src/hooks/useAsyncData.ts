@@ -18,8 +18,10 @@ export const useAsyncData = ({
   const [prefetchedData, setPrefetchedData] = useState([]);
 
   const onFetchData = useCallback(
-    (query = '') =>
-      api.get(`${baseApiUrl}?${queryParam}${encodeURIComponent(query || '')}`),
+    (query = ''): Promise<any[]> =>
+      api.get(
+        `${baseApiUrl}?${queryParam}${encodeURIComponent(query || '')}`
+      ) as Promise<any[]>,
     [baseApiUrl, queryParam]
   );
 
@@ -30,7 +32,7 @@ export const useAsyncData = ({
         setIsLoadingData(true);
         try {
           const response = await onFetchData(query);
-          const items = response.data || [];
+          const items = response || [];
 
           setIsLoadingData(false);
 
@@ -64,7 +66,7 @@ export const useAsyncData = ({
       prefetchedMap[baseApiUrl] = 'loading';
       const response = await onFetchData();
 
-      const items = response.data.result ? response.data.result : [];
+      const items = response || [];
 
       let mappedItems = items;
 
