@@ -1,13 +1,13 @@
 import { LocationType } from 'src/enums/LocationType';
 import { IPrefetchedFilters } from 'src/interfaces/prefetched-filters.interface';
 
-// TODO: add a custom description for each of the options
 const availableRoutes = {
   'vagas-de-estagio-remotas': {
     filters: {
       text: 'remoto',
     },
     filterSections: [],
+    title: 'Vagas de Estágio Remotas',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio remotas no Brasil! De um início na sua carreira sem sair de casa.',
   } as IPrefetchedFilters,
@@ -16,6 +16,7 @@ const availableRoutes = {
       text: 'desenvolvimento',
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Desenvolvimento',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio como Desenvolvedor(a) no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -24,6 +25,7 @@ const availableRoutes = {
       text: 'programação',
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Programação',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Programação no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -32,6 +34,7 @@ const availableRoutes = {
       text: 'direito',
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Direito',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Direito no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -40,6 +43,7 @@ const availableRoutes = {
       text: 'pedagogia',
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Pedagogia',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Pedagogia no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -48,6 +52,7 @@ const availableRoutes = {
       text: 'contábeis',
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Contábeis',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Contábeis no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -56,6 +61,7 @@ const availableRoutes = {
       text: 'educação física',
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Educação Física',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Educação Física no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -64,6 +70,7 @@ const availableRoutes = {
       text: 'engenharia',
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Engenharia',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Engenharia no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -72,6 +79,7 @@ const availableRoutes = {
       text: 'engenharia elétrica',
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Engenharia Elétrica',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Engenharia Elétrica no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -80,6 +88,7 @@ const availableRoutes = {
       text: 'engenharia civil',
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Engenharia Civil',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Engenharia Civil no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -88,6 +97,7 @@ const availableRoutes = {
       text: 'psicologia',
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Psicologia',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Psicologia no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -96,6 +106,7 @@ const availableRoutes = {
       text: 'publicidade e propaganda',
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Publicidade e Propaganda',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Publicidade e Propaganda no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -104,6 +115,7 @@ const availableRoutes = {
       text: 'engenharia de produção',
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Engenharia de Produção',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Egenharia de Produção no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -116,6 +128,7 @@ const availableRoutes = {
       },
     },
     filterSections: [],
+    title: 'Vagas de Estágio em São Paulo',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em São Paulo! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -128,6 +141,7 @@ const availableRoutes = {
       },
     },
     filterSections: [],
+    title: 'Vagas de Estágio em São Paulo',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em São Paulo! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -140,6 +154,7 @@ const availableRoutes = {
       },
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Curitiba',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Curitiba! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -152,6 +167,7 @@ const availableRoutes = {
       },
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Florianópolis',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Florianópolis! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -164,6 +180,7 @@ const availableRoutes = {
       },
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Porto Alegre',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Porto Alegre! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -176,6 +193,7 @@ const availableRoutes = {
       },
     },
     filterSections: [],
+    title: 'Vagas de Estágio em Rio de Janeiro',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio no Rio de Janeiro! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
@@ -188,6 +206,7 @@ export const getFiltersByUrl = (url: string): IPrefetchedFilters => {
     return {
       filters: {},
       filterSections: [],
+      title: '',
       description: '',
     };
   }
