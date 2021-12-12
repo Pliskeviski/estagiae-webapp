@@ -31,7 +31,10 @@ const JobsList: NextPage = ({
   }, [preLoadedJobs]);
 
   return (
-    <PageWrapper title="Vagas">
+    <PageWrapper
+      title="Vagas"
+      customDescription={preLoadedFilters?.description}
+    >
       <JobsListContainer />
       {children}
     </PageWrapper>

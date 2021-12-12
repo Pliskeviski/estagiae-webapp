@@ -8,6 +8,7 @@ import { IJobFilters } from 'src/interfaces/job-filters.interface';
 import { apiRoutes } from 'src/services/routes';
 import { IGetJobsInterface } from 'src/interfaces/get-jobs.interface';
 import { IFilterSection } from 'src/interfaces/filter-section.interface';
+import { LocationType } from 'src/enums/LocationType';
 
 export const getJobsList = (
   loadMoreParams: ILoadMore,
@@ -21,17 +22,17 @@ export const getJobsList = (
     company: filters.company?.value,
   };
 
-  if (filters.location?.type === 0) {
+  if (filters.location?.type === LocationType.Country) {
     mappedParams = {
       ...mappedParams,
       countryId: filters.location.value,
     };
-  } else if (filters.location?.type === 1) {
+  } else if (filters.location?.type === LocationType.State) {
     mappedParams = {
       ...mappedParams,
       stateId: filters.location.value,
     };
-  } else if (filters.location?.type === 2) {
+  } else if (filters.location?.type === LocationType.City) {
     mappedParams = {
       ...mappedParams,
       cityId: filters.location.value,
