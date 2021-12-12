@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const isServerSide = typeof window === 'undefined';
+// const isServerSide = typeof window === 'undefined';
 
 const api = axios.create({
-  baseURL: isServerSide ? process.env.API_URL : '/api',
+  // baseURL: isServerSide ? process.env.API_URL : '/api',
+  baseURL: process.env.API_URL,
 });
 
 api.interceptors.response.use(
