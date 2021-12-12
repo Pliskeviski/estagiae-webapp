@@ -119,6 +119,66 @@ const availableRoutes = {
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em São Paulo! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
+  'vagas-de-estagio-em-sp': {
+    filters: {
+      location: {
+        label: 'São Paulo',
+        value: 'd6c8cda8-e019-4246-b36b-66c35e98c993',
+        type: LocationType.State,
+      },
+    },
+    filterSections: [],
+    description:
+      'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em São Paulo! De uma olhada nas vagas em aberto com a gente.',
+  } as IPrefetchedFilters,
+  'vagas-de-estagio-em-curitiba': {
+    filters: {
+      location: {
+        label: 'Curitiba',
+        value: 'd35cd1f0-046c-4c87-a1bf-3a4320ee76de',
+        type: LocationType.City,
+      },
+    },
+    filterSections: [],
+    description:
+      'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Curitiba! De uma olhada nas vagas em aberto com a gente.',
+  } as IPrefetchedFilters,
+  'vagas-de-estagio-em-florianópolis': {
+    filters: {
+      location: {
+        label: 'Florianópolis',
+        value: '4c8fa15b-97b4-40c8-91b6-add645b8e594',
+        type: LocationType.City,
+      },
+    },
+    filterSections: [],
+    description:
+      'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Florianópolis! De uma olhada nas vagas em aberto com a gente.',
+  } as IPrefetchedFilters,
+  'vagas-de-estagio-em-porto-alegre': {
+    filters: {
+      location: {
+        label: 'Porto Alegre',
+        value: '7c85595c-bbf4-4a2b-9520-6b25d552d01c',
+        type: LocationType.City,
+      },
+    },
+    filterSections: [],
+    description:
+      'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Porto Alegre! De uma olhada nas vagas em aberto com a gente.',
+  } as IPrefetchedFilters,
+  'vagas-de-estagio-no-rio-de-janeiro': {
+    filters: {
+      location: {
+        label: 'Rio de Janeiro',
+        value: 'bf50a857-167b-47e5-b847-862db1c6c96d',
+        type: LocationType.State,
+      },
+    },
+    filterSections: [],
+    description:
+      'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio no Rio de Janeiro! De uma olhada nas vagas em aberto com a gente.',
+  } as IPrefetchedFilters,
 };
 
 export const getFiltersByUrl = (url: string): IPrefetchedFilters => {
