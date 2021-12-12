@@ -1,13 +1,11 @@
 import axios from 'axios';
 
-const isServerSide = typeof window === 'undefined';
-
-console.log('NEXT_PUBLIC_API_URL', process.env.NEXT_PUBLIC_API_URL);
+// const isServerSide = typeof window === 'undefined';
+// const baseApiUrl = isServerSide ? process.env.BASE_API_URL : '/api';
+const baseApiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const api = axios.create({
-  baseURL: isServerSide
-    ? process.env.NEXT_PUBLIC_API_URL
-    : process.env.NEXT_PUBLIC_API_URL,
+  baseURL: baseApiUrl,
 });
 
 api.interceptors.response.use(
