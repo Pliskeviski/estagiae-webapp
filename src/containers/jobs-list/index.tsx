@@ -24,7 +24,8 @@ import {
 
 const RenderJobs = React.memo(() => {
   // TODO: we need to handle the "hasError" state
-  const { onLoadMore, items, hasMore, page, total } = useJobsListStore();
+  const { onLoadMore, items, hasMore, page, total, pageTitle } =
+    useJobsListStore();
 
   const jobs: IJobPreview[] = items;
 
@@ -34,11 +35,16 @@ const RenderJobs = React.memo(() => {
     }
   }, [onLoadMore, page]);
 
+  useEffect(() => {
+    document.title = `${pageTitle} - Estagiaê` || 'Vagas - Estagiaê';
+  }, [pageTitle]);
+
   return (
     <>
       <ContainerJobsHeader>
         <TitleContainer>
-          Resultados {total > 0 && <AmountOfJobs>{total}</AmountOfJobs>}
+          {pageTitle || 'Resultados'}{' '}
+          {total > 0 && <AmountOfJobs>{total}</AmountOfJobs>}
         </TitleContainer>
         {/* <OrderByContainer>
           <OrderByLabel>Ordernar por </OrderByLabel>

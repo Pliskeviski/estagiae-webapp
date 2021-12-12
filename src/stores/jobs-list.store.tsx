@@ -17,6 +17,7 @@ interface IJobsListState {
   isFetchingData: boolean;
   preFetchedData: any;
   preFetchedFilters: IPrefetchedFilters;
+  pageTitle: string;
   onReset: () => void;
   onLoadMore: () => void;
   onChangeFilterSections: (filterSections: IFilterSection[]) => void;
@@ -24,6 +25,7 @@ interface IJobsListState {
   onUpdateFilters: (filters: Partial<IJobFilters>) => void;
 }
 
+let hasClearedCustomTitleTick = 0;
 const useJobsListStore = create<IJobsListState>((setState, getState) => ({
   items: [],
   hasMore: true,
@@ -35,6 +37,7 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
   isFetchingData: false,
   preFetchedData: null,
   preFetchedFilters: null,
+  pageTitle: null,
   onReset: () => {
     setState({
       items: [],
@@ -53,6 +56,14 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
       preFetchedData,
       preFetchedFilters,
     } = getState();
+
+    // Resets page title
+    if (hasClearedCustomTitleTick === 1) {
+      setState({ pageTitle: '' });
+      window.history.replaceState({}, '', '/vagas');
+    } else {
+      hasClearedCustomTitleTick += 1;
+    }
 
     if (isFetchingData) return;
 

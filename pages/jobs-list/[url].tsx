@@ -27,6 +27,7 @@ const JobsList: NextPage = ({
     setJobsListStore({
       preFetchedData: preLoadedJobs,
       preFetchedFilters: preLoadedFilters,
+      pageTitle: preLoadedFilters.title,
     });
   }, [preLoadedJobs]);
 
