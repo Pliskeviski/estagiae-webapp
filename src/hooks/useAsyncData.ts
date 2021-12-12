@@ -1,11 +1,9 @@
 import { useState, useCallback, useEffect } from 'react';
-import { setup } from 'axios-cache-adapter';
-
-const api = setup({});
+import api from '@axios';
 
 let timer = null;
 
-const defaultCacheMaxAge = 86400000; // 24 hours
+// const defaultCacheMaxAge = 86400000; // 24 hours
 
 const prefetchedMap = {};
 
@@ -13,7 +11,7 @@ export const useAsyncData = ({
   baseApiUrl,
   prefetch = false,
   onParseData = null,
-  cacheMaxAge = defaultCacheMaxAge,
+  // cacheMaxAge = defaultCacheMaxAge,
   queryParam = 'search=',
 }) => {
   const [isLoadingData, setIsLoadingData] = useState(false);
@@ -21,15 +19,8 @@ export const useAsyncData = ({
 
   const onFetchData = useCallback(
     (query = '') =>
-      api.get(`${baseApiUrl}?${queryParam}${encodeURIComponent(query || '')}`, {
-        cache: {
-          maxAge: cacheMaxAge,
-          exclude: {
-            query: false,
-          },
-        },
-      }),
-    [baseApiUrl, cacheMaxAge, queryParam]
+      api.get(`${baseApiUrl}?${queryParam}${encodeURIComponent(query || '')}`),
+    [baseApiUrl, queryParam]
   );
 
   const loadOptions = useCallback(

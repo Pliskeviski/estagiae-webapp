@@ -2,7 +2,7 @@ import { useAsyncData } from './useAsyncData';
 
 export const useCompany = (prefetch) => {
   const config = {
-    baseApiUrl: '/api/v1/job/companies',
+    baseApiUrl: '/v1/job/companies',
     prefetch,
   };
 
