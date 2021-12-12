@@ -24,7 +24,10 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <LogoContent>
-        <Logo src="https://estagiae-storage.sfo3.cdn.digitaloceanspaces.com/static/static/Logo%20Estagiae.svg" />
+        <Logo
+          src="https://estagiae-storage.sfo3.cdn.digitaloceanspaces.com/static/static/Logo%20Estagiae.svg"
+          alt="Estagiaê"
+        />
         <CompanyName>Estagiaê</CompanyName>
       </LogoContent>
       <LinksContainer amount={linksMenu.length}>
