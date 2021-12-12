@@ -1,6 +1,7 @@
 import React, { useCallback, useContext, useMemo } from 'react';
 import { IconType } from 'react-icons';
 import { components, InputProps } from 'react-select';
+import { v4 as uuidv4 } from 'uuid';
 
 import { ISelectOption } from 'src/interfaces/select-option.interface';
 import { ThemeContext } from 'styled-components';
@@ -75,6 +76,7 @@ export const SelectInput = React.memo(
     icon,
   }: ISelectInputProps) => {
     const themeContext = useContext(ThemeContext);
+    const uniqueId = useMemo(() => uuidv4(), []);
 
     const className = 'select-input';
 

@@ -7,6 +7,7 @@ import { BsLinkedin } from 'react-icons/bs';
 import { parseISO, formatDistanceToNowStrict } from 'date-fns';
 
 import { pt } from 'date-fns/locale';
+import { sendGAEvent } from 'src/services/analytics';
 
 import {
   BadgesContainer,
@@ -116,7 +117,13 @@ export const JobCard = React.memo(({ job }: IJobCardProps) => {
 
       <ContainerButtons>
         <a href={job.externalUrl} target="_blank" rel="noreferrer">
-          <Button>
+          <Button
+            onClick={() =>
+              sendGAEvent('button-apply', {
+                url: job.externalUrl,
+              })
+            }
+          >
             Aplicar <FiExternalLink />
           </Button>
         </a>

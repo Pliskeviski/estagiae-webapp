@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 /* eslint-disable @next/next/no-page-custom-font */
 import { memo } from 'react';
 import Head from 'next/head';
@@ -59,13 +60,17 @@ export const PageWrapper = memo(({ title, children }: IPageWrapperProps) => {
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
           key="viewport"
         />
-        <script>
-          {`window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-CMP10W89F9');`}
-        </script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+  
+            gtag('config', 'G-CMP10W89F9');
+          `,
+          }}
+        />
         <meta name="description" content={seoDescription} key="description" />
         <meta property="og:title" content={pageTitle} key="ogtitle" />
         <meta property="og:description" content={seoDescription} key="ogdesc" />
