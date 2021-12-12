@@ -50,7 +50,9 @@ export const generateJobsSchema = (items: IJobPreview[]): string => {
         value: item.id,
       },
       datePosted: formatDate(item.postedAt),
-      validThrough: formatDate(item.expiresAt?.toISOString()),
+      validThrough: item.expiresAt
+        ? formatDate(new Date(item.expiresAt)?.toISOString())
+        : undefined,
       employmentType: item.jobTypeSchema,
       hiringOrganization: {
         '@type': 'Organization',
