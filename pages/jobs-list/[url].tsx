@@ -28,7 +28,6 @@ const JobsList: NextPage = ({
       preFetchedData: preLoadedJobs,
       preFetchedFilters: preLoadedFilters,
       pageTitle: preLoadedFilters?.title,
-      page: preLoadedJobs?.page,
     });
   }, [preLoadedJobs, preLoadedFilters]);
 
