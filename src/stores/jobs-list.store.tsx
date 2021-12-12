@@ -4,6 +4,7 @@ import { getJobsList } from 'src/services/job.service';
 import { v4 as uuidv4 } from 'uuid';
 import { IJobFilters } from 'src/interfaces/job-filters.interface';
 import { IFilterSection } from 'src/interfaces/filter-section.interface';
+import { IPrefetchedFilters } from 'src/interfaces/prefetched-filters.interface';
 
 interface IJobsListState {
   items: IJobPreview[];
@@ -15,6 +16,7 @@ interface IJobsListState {
   filterSections: IFilterSection[];
   isFetchingData: boolean;
   preFetchedData: any;
+  preFetchedFilters: IPrefetchedFilters;
   onReset: () => void;
   onLoadMore: () => void;
   onChangeFilterSections: (filterSections: IFilterSection[]) => void;
@@ -32,6 +34,7 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
   filterSections: [],
   isFetchingData: false,
   preFetchedData: null,
+  preFetchedFilters: null,
   onReset: () => {
     setState({
       items: [],
@@ -48,6 +51,7 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
       filterSections: currentFilterSections,
       isFetchingData,
       preFetchedData,
+      preFetchedFilters,
     } = getState();
 
     if (isFetchingData) return;
@@ -88,8 +92,15 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
           }
         );
 
+        if (preFetchedFilters) {
+          // TODO: map preFetchedFilters to mappedFilterSections
+        }
+
         setState({
           filterSections: mappedFilterSections,
+          filters: preFetchedFilters?.filters
+            ? { ...preFetchedFilters?.filters }
+            : {},
         });
       }
 

@@ -6,18 +6,28 @@ import { IJobPreview } from 'src/interfaces/job-preview.interface';
 import { IPaginatedResponse } from 'src/interfaces/pagination.interface';
 import { ReactNode, useEffect, useLayoutEffect } from 'react';
 import { setJobsListStore } from 'src/stores/jobs-list.store';
+import { getFiltersByUrl } from 'src/seo/getFiltersByUrl';
+import { IPrefetchedFilters } from 'src/interfaces/prefetched-filters.interface';
 
 // route /vagas
 interface IJobListProps {
   preLoadedJobs: IPaginatedResponse<IJobPreview>;
+  preLoadedFilters: IPrefetchedFilters;
   children?: ReactNode;
 }
 
-const JobsList: NextPage = ({ preLoadedJobs, children }: IJobListProps) => {
+const JobsList: NextPage = ({
+  preLoadedJobs,
+  preLoadedFilters,
+  children,
+}: IJobListProps) => {
   const effectFn = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
   effectFn(() => {
-    setJobsListStore({ preFetchedData: preLoadedJobs });
+    setJobsListStore({
+      preFetchedData: preLoadedJobs,
+      preFetchedFilters: preLoadedFilters,
+    });
   }, [preLoadedJobs]);
 
   return (
@@ -28,26 +38,30 @@ const JobsList: NextPage = ({ preLoadedJobs, children }: IJobListProps) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
+  const filters = getFiltersByUrl(context?.query?.url);
+
   try {
     const response = await getJobsList(
       {
         page: 1,
         size: 12,
       },
-      {},
-      []
+      filters.filters,
+      filters.filterSections || []
     );
 
     return {
       props: {
         preLoadedJobs: response,
+        preLoadedFilters: filters,
       },
     };
   } catch {
     return {
       props: {
         preLoadedJobs: null,
+        preLoadedFilters: null,
       },
     };
   }

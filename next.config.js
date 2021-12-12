@@ -33,8 +33,8 @@ module.exports = withImages(
           destination: `${process.env.NEXT_PUBLIC_API_URL}/:path*`,
         },
         {
-          source: '/vagas',
-          destination: '/jobs-list',
+          source: '/:path*',
+          destination: '/jobs-list/:path*',
         },
       ];
     },

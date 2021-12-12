@@ -46,6 +46,13 @@ export const Search = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearchValue]);
 
+  useEffect(() => {
+    if (text && !searchValue) {
+      setSearchValue(text);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [text]);
+
   return (
     <SearchContainer>
       <SearchLimitedContainer>
