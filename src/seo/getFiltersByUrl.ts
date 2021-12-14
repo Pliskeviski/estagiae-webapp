@@ -117,7 +117,7 @@ const availableRoutes = {
     filterSections: [],
     title: 'Vagas de Estágio em Engenharia de Produção',
     description:
-      'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Egenharia de Produção no Brasil! De uma olhada nas vagas em aberto com a gente.',
+      'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Engenharia de Produção no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
   'vagas-de-estagio-em-sao-paulo': {
     filters: {
@@ -196,6 +196,15 @@ const availableRoutes = {
     title: 'Vagas de Estágio em Rio de Janeiro',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio no Rio de Janeiro! De uma olhada nas vagas em aberto com a gente.',
+  } as IPrefetchedFilters,
+  'vagas-de-estagio-em-marketing': {
+    filters: {
+      text: 'marketing',
+    },
+    filterSections: [],
+    title: 'Vagas de Estágio em Marketing',
+    description:
+      'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Marketing no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
 };
 
