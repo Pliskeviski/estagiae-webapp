@@ -119,6 +119,44 @@ const availableRoutes = {
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Engenharia de Produção no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
+  'vagas-de-estagio-em-marketing': {
+    filters: {
+      text: 'marketing',
+    },
+    filterSections: [],
+    title: 'Vagas de Estágio em Marketing',
+    description:
+      'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Marketing no Brasil! De uma olhada nas vagas em aberto com a gente.',
+  } as IPrefetchedFilters,
+  'vagas-de-estagio-em-enfermagem': {
+    filters: {
+      text: 'enfermagem',
+    },
+    filterSections: [],
+    title: 'Vagas de Estágio em Enfermagem',
+    description:
+      'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Enfermagem no Brasil! De uma olhada nas vagas em aberto com a gente.',
+  } as IPrefetchedFilters,
+  'vagas-de-estagio-em-arquitetura': {
+    filters: {
+      text: 'arquitetura',
+    },
+    filterSections: [],
+    title: 'Vagas de Estágio em Arquitetura',
+    description:
+      'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Arquitetura no Brasil! De uma olhada nas vagas em aberto com a gente.',
+  } as IPrefetchedFilters,
+  'vagas-de-estagio-em-administracao': {
+    filters: {
+      text: 'administração',
+    },
+    filterSections: [],
+    title: 'Vagas de Estágio em Administração',
+    description:
+      'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Administração no Brasil! De uma olhada nas vagas em aberto com a gente.',
+  } as IPrefetchedFilters,
+
+  // Location filters
   'vagas-de-estagio-em-sao-paulo': {
     filters: {
       location: {
@@ -196,15 +234,6 @@ const availableRoutes = {
     title: 'Vagas de Estágio em Rio de Janeiro',
     description:
       'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio no Rio de Janeiro! De uma olhada nas vagas em aberto com a gente.',
-  } as IPrefetchedFilters,
-  'vagas-de-estagio-em-marketing': {
-    filters: {
-      text: 'marketing',
-    },
-    filterSections: [],
-    title: 'Vagas de Estágio em Marketing',
-    description:
-      'A Estagiaê te ajuda a encontrar as melhores oportunidades de estágio em Marketing no Brasil! De uma olhada nas vagas em aberto com a gente.',
   } as IPrefetchedFilters,
 };
 
