@@ -33,7 +33,7 @@ const JobsList: NextPage = ({
 
   return (
     <PageWrapper
-      title="Vagas"
+      title="Encontre as melhores vagas de estágio do Brasil"
       customDescription={preLoadedFilters?.description}
     >
       <JobsListContainer />
