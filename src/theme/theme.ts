@@ -17,6 +17,7 @@ const Theme: DefaultTheme = {
     tertiary: 'Poppins, sans-serif',
   },
   fontSizes: {
+    h1: '1.6rem',
     h5: '1.25rem',
     body: {
       large: '1.2rem',

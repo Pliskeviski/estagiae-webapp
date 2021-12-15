@@ -16,6 +16,7 @@ import {
   EmptyMessage,
   JobsCardsList,
   LoadingContainer,
+  PageTitle,
   // OrderByContainer,
   // OrderByLabel,
   // OrderedByValue,
@@ -24,8 +25,7 @@ import {
 
 const RenderJobs = React.memo(() => {
   // TODO: we need to handle the "hasError" state
-  const { onLoadMore, items, hasMore, page, total, pageTitle } =
-    useJobsListStore();
+  const { onLoadMore, items, hasMore, page, total } = useJobsListStore();
 
   const jobs: IJobPreview[] = items;
 
@@ -39,8 +39,7 @@ const RenderJobs = React.memo(() => {
     <>
       <ContainerJobsHeader>
         <TitleContainer>
-          {pageTitle || 'Resultados'}{' '}
-          {total > 0 && <AmountOfJobs>{total}</AmountOfJobs>}
+          Resultados {total > 0 && <AmountOfJobs>{total}</AmountOfJobs>}
         </TitleContainer>
         {/* <OrderByContainer>
           <OrderByLabel>Ordernar por </OrderByLabel>
@@ -87,9 +86,14 @@ const RenderJobs = React.memo(() => {
 });
 
 export const JobsListContainer = React.memo(() => {
+  const { pageTitle } = useJobsListStore();
+
   return (
     <>
       <Search />
+      <PageTitle>
+        {pageTitle || 'Encontre as melhores vagas de estágio do Brasil'}
+      </PageTitle>
       <ContainerJobList>
         <ContainerFilterDetails>
           <TitleContainer>Filtros</TitleContainer>

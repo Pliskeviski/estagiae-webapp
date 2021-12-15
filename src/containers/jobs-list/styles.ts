@@ -87,3 +87,11 @@ export const LoadingContainer = styled.div`
 export const EmptyMessage = styled.p`
   text-align: center;
 `;
+
+export const PageTitle = styled.h1`
+  ${LimitedContainerCss};
+  margin-top: 2rem;
+  margin-bottom: 0;
+  font-size: ${({ theme }) => theme.fontSizes.h1};
+  color: ${({ theme }) => theme.colors['gray-80']};
+`;
