@@ -23,10 +23,12 @@ export const CompanyLogoContainer = styled.div`
   overflow: hidden;
 `;
 
-export const JobCardTitle = styled.p`
+export const JobCardTitle = styled.h5`
   font-size: ${({ theme }) => theme.fontSizes.body.large};
   color: ${({ theme }) => theme.colors['gray-80']};
   font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 `;
 
 export const BadgesContainer = styled.div`

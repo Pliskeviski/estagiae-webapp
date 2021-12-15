@@ -64,7 +64,9 @@ const useJobsListStore = create<IJobsListState>((setState, getState) => ({
       window.history.replaceState({}, '', '/vagas');
     } else {
       hasClearedCustomTitleTick += 1;
-      document.title = `${pageTitle} - Estagiaê` || 'Vagas - Estagiaê';
+      document.title =
+        `${pageTitle} - Estagiaê` ||
+        'Encontre as melhores vagas de estágio do Brasil - Estagiaê';
     }
 
     if (isFetchingData) return;
