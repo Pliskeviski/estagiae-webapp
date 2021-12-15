@@ -67,17 +67,19 @@ export const PageWrapper = memo(
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
             key="viewport"
           />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-  
-            gtag('config', 'G-CMP10W89F9');
-          `,
-            }}
-          />
+          {process.env.NODE_ENV === 'production' && (
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', 'G-CMP10W89F9');
+                  `,
+              }}
+            />
+          )}
           <meta name="description" content={seoDescription} key="description" />
           <meta property="og:title" content={pageTitle} key="ogtitle" />
           <meta
