@@ -88,7 +88,7 @@ export const PageWrapper = memo(
             key="ogdesc"
           />
           <script type="application/ld+json">
-            {`{${generateCorporateSchema()}}`}
+            {generateCorporateSchema()}
           </script>
           <script type="application/ld+json">
             {items.length > 0 && generateJobsSchema(items)}

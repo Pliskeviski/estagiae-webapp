@@ -88,7 +88,7 @@ interface ICorporateSchema {
   sameAs: string[];
 }
 
-export const generateCorporateSchema = (): string => {
+export const generateCorporateSchema = () => {
   const corporateSchema: ICorporateSchema = {
     '@context': 'https://schema.org',
     '@type': 'Corporation',
@@ -101,5 +101,5 @@ export const generateCorporateSchema = (): string => {
     sameAs: [],
   };
 
-  return JSON.stringify(corporateSchema);
+  return corporateSchema;
 };
