@@ -38,6 +38,8 @@ const formatDate = (date: string): string => {
 };
 
 export const generateJobsSchema = (items: IJobPreview[]): string => {
+  if (items.length === 0) return '';
+
   const jobs: IJobSchema[] = items.map((item) => {
     const jobSchema: IJobSchema = {
       '@context': 'https://schema.org',
