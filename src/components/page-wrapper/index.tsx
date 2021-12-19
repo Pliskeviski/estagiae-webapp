@@ -93,14 +93,13 @@ export const PageWrapper = memo(
           <script type="application/ld+json">
             {`
               {
-                "@context": 'https://schema.org',
-                "@type": 'Corporation',
-                "legalName": 'Estagiaê',
+                "@context": "https://schema.org",
+                "@type": "Corporation",
+                "legalName": "Estagiaê",
                 "description":
-                  'A Estagiaê é uma plataforma de estágio que busca aprimorar a qualidade de vida de seus usuários, simplificando a busca e filtrando pelas melhores oportunidades!',
-                "url": 'https://estagiae.com.br',
-                "logo": 'https://estagiae-storage.sfo3.cdn.digitaloceanspaces.com/static/static/Logo%20Estagiae.svg',
-                "sameAs": [],
+                  "A Estagiaê é uma plataforma de estágio que busca aprimorar a qualidade de vida de seus usuários, simplificando a busca e filtrando pelas melhores oportunidades!",
+                "url": "https://estagiae.com.br",
+                "logo": "https://estagiae-storage.sfo3.cdn.digitaloceanspaces.com/static/static/Logo%20Estagiae.svg"
               }
             `}
           </script>
