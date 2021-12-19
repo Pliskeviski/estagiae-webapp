@@ -5,10 +5,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 
 import useJobsListStore from 'src/stores/jobs-list.store';
-import {
-  // generateCorporateSchema,
-  generateJobsSchema,
-} from 'src/seo/generateJobsSchema';
+import { generateJobsSchema } from 'src/seo/generateJobsSchema';
 import { Header } from '../header';
 
 export interface IPageWrapperProps {
@@ -87,9 +84,6 @@ export const PageWrapper = memo(
             content={seoDescription}
             key="ogdesc"
           />
-          {/* <script type="application/ld+json">
-            {generateCorporateSchema()}
-          </script> */}
           <script type="application/ld+json">
             {`
               {
