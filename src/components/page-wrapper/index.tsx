@@ -6,7 +6,7 @@ import Script from 'next/script';
 
 import useJobsListStore from 'src/stores/jobs-list.store';
 import {
-  generateCorporateSchema,
+  // generateCorporateSchema,
   generateJobsSchema,
 } from 'src/seo/generateJobsSchema';
 import { Header } from '../header';
