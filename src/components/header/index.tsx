@@ -16,6 +16,10 @@ export const Header = () => {
       path: '/vagas',
     },
     {
+      label: 'Contato',
+      path: 'mailto:contato@estagiae.com.br',
+    },
+    {
       label: 'Sobre Nós',
       path: '/about-us',
     },
