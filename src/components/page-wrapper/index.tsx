@@ -84,7 +84,7 @@ export const PageWrapper = memo(
             content={seoDescription}
             key="ogdesc"
           />
-          <script type="application/ld+json">
+          {/* <script type="application/ld+json">
             {`
               {
                 "@context": "https://schema.org",
@@ -96,7 +96,7 @@ export const PageWrapper = memo(
                 "logo": "https://estagiae-storage.sfo3.cdn.digitaloceanspaces.com/static/static/Logo%20Estagiae.svg"
               }
             `}
-          </script>
+          </script> */}
           <script type="application/ld+json">
             {generateJobsSchema(items)}
           </script>
