@@ -5,10 +5,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 
 import useJobsListStore from 'src/stores/jobs-list.store';
-import {
-  generateCorporateSchema,
-  generateJobsSchema,
-} from 'src/seo/generateJobsSchema';
+import { generateJobsSchema } from 'src/seo/generateJobsSchema';
 import { Header } from '../header';
 
 export interface IPageWrapperProps {
@@ -90,9 +87,9 @@ export const PageWrapper = memo(
           <script type="application/ld+json">
             {generateJobsSchema(items)}
           </script>
-          <script type="application/ld+json">
+          {/* <script type="application/ld+json">
             {generateCorporateSchema()}
-          </script>
+          </script> */}
           {/*
           TODO: add social og stuff
           https://www.netlify.com/blog/2020/05/08/improve-your-seo-and-social-sharing-cards-with-next.js/
