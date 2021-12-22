@@ -79,29 +79,27 @@ export const generateJobsSchema = (items: IJobPreview[]): string => {
   return JSON.stringify(jobs);
 };
 
-// interface ICorporateSchema {
-//   '@context': string;
-//   '@type': string;
-//   // '@id': string;
-//   legalName: string;
-//   description: string;
-//   url: string;
-//   logo: string;
-//   sameAs: string[];
-// }
+interface ICorporateSchema {
+  '@context': string;
+  '@type': string;
+  legalName: string;
+  description: string;
+  url: string;
+  logo: string;
+  sameAs: string[];
+}
 
-// export const generateCorporateSchema = (): string => {
-//   const corporateSchema: ICorporateSchema = {
-//     '@context': 'https://schema.org',
-//     '@type': 'Corporation',
-//     // '@id': 'https://estagiae.com.br',
-//     legalName: 'Estagiaê',
-//     description:
-//       'A Estagiaê é uma plataforma de estágio que busca aprimorar a qualidade de vida de seus usuários, simplificando a busca e filtrando pelas melhores oportunidades!',
-//     url: 'https://estagiae.com.br',
-//     logo: 'https://estagiae-storage.sfo3.cdn.digitaloceanspaces.com/static/static/Logo%20Estagiae.svg',
-//     sameAs: [],
-//   };
+export const generateCorporateSchema = (): string => {
+  const corporateSchema: ICorporateSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Corporation',
+    legalName: 'Estagiaê',
+    description:
+      'A Estagiaê é uma plataforma de estágio que busca aprimorar a qualidade de vida de seus usuários, simplificando a busca e filtrando pelas melhores oportunidades!',
+    url: 'https://estagiae.com.br',
+    logo: 'https://estagiae-storage.sfo3.cdn.digitaloceanspaces.com/static/static/Logo%20Estagiae.svg',
+    sameAs: [],
+  };
 
-//   return JSON.stringify(corporateSchema);
-// };
+  return JSON.stringify(corporateSchema);
+};

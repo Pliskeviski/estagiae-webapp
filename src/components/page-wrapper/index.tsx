@@ -5,7 +5,10 @@ import Head from 'next/head';
 import Script from 'next/script';
 
 import useJobsListStore from 'src/stores/jobs-list.store';
-import { generateJobsSchema } from 'src/seo/generateJobsSchema';
+import {
+  generateCorporateSchema,
+  generateJobsSchema,
+} from 'src/seo/generateJobsSchema';
 import { Header } from '../header';
 
 export interface IPageWrapperProps {
@@ -84,21 +87,11 @@ export const PageWrapper = memo(
             content={seoDescription}
             key="ogdesc"
           />
-          {/* <script type="application/ld+json">
-            {`
-              {
-                "@context": "https://schema.org",
-                "@type": "Corporation",
-                "legalName": "Estagiaê",
-                "description":
-                  "A Estagiaê é uma plataforma de estágio que busca aprimorar a qualidade de vida de seus usuários, simplificando a busca e filtrando pelas melhores oportunidades!",
-                "url": "https://estagiae.com.br",
-                "logo": "https://estagiae-storage.sfo3.cdn.digitaloceanspaces.com/static/static/Logo%20Estagiae.svg"
-              }
-            `}
-          </script> */}
           <script type="application/ld+json">
             {generateJobsSchema(items)}
+          </script>
+          <script type="application/ld+json">
+            {generateCorporateSchema()}
           </script>
           {/*
           TODO: add social og stuff
