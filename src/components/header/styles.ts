@@ -16,6 +16,7 @@ export const LogoContent = styled.div`
   color: ${({ theme }) => theme.colors.primary};
   align-items: center;
   display: flex;
+  cursor: pointer;
 `;
 
 type LinksContainer = {
@@ -25,6 +26,7 @@ export const LinksContainer = styled.div<LinksContainer>`
   display: grid;
   grid-template-columns: ${({ amount }) => `repeat(${amount}, 1fr)`};
   grid-gap: 1rem;
+  width: min-content;
 `;
 
 export const LinkItem = styled.a`
@@ -33,6 +35,7 @@ export const LinkItem = styled.a`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.primary};
   font-size: ${({ theme }) => theme.fontSizes.body.small};
+  width: max-content;
 `;
 
 export const Logo = styled.img`

@@ -1,12 +1,11 @@
 import { NextPage } from 'next';
 import { PageWrapper } from 'src/components/page-wrapper';
-import { AuthContainer } from 'src/containers/auth';
-import { AuthStep } from 'src/enums/AuthStep';
+import { AboutUsContainer } from 'src/containers/about-us';
 
 const AboutUs: NextPage = () => {
   return (
     <PageWrapper title="Sobre nós">
-      <AuthContainer step={AuthStep.Login} />
+      <AboutUsContainer />
     </PageWrapper>
   );
 };
