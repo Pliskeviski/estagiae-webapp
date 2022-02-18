@@ -16,20 +16,26 @@ export const Header = () => {
       path: '/vagas',
     },
     {
-      label: 'Blog',
-      path: '/blog',
+      label: 'Contato',
+      path: 'mailto:contato@estagiae.com.br',
+    },
+    {
+      label: 'Sobre Nós',
+      path: '/about-us',
     },
   ];
 
   return (
     <HeaderContainer>
-      <LogoContent>
-        <Logo
-          src="https://estagiae-storage.sfo3.cdn.digitaloceanspaces.com/static/static/Logo%20Estagiae.svg"
-          alt="Estagiaê"
-        />
-        <CompanyName>Estagiaê</CompanyName>
-      </LogoContent>
+      <Link href="/vagas" passHref>
+        <LogoContent>
+          <Logo
+            src="https://estagiae-storage.sfo3.cdn.digitaloceanspaces.com/static/static/Logo%20Estagiae.svg"
+            alt="Estagiaê"
+          />
+          <CompanyName>Estagiaê</CompanyName>
+        </LogoContent>
+      </Link>
       <LinksContainer amount={linksMenu.length}>
         {linksMenu.map(({ label, path }) => (
           <Link href={path} passHref key={path}>
