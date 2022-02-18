@@ -84,9 +84,9 @@ export const PageWrapper = memo(
             content={seoDescription}
             key="ogdesc"
           />
-          <script type="application/ld+json">
+          {/* <script type="application/ld+json">
             {generateJobsSchema(items)}
-          </script>
+          </script> */}
           {/* <script type="application/ld+json">
             {generateCorporateSchema()}
           </script> */}
