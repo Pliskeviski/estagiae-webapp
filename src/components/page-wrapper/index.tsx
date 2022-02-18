@@ -4,8 +4,8 @@ import { memo, useMemo } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 
-import useJobsListStore from 'src/stores/jobs-list.store';
-import { generateJobsSchema } from 'src/seo/generateJobsSchema';
+// import useJobsListStore from 'src/stores/jobs-list.store';
+// import { generateJobsSchema } from 'src/seo/generateJobsSchema';
 import { Header } from '../header';
 
 export interface IPageWrapperProps {
@@ -19,7 +19,7 @@ const baseDescription =
 
 export const PageWrapper = memo(
   ({ title, customDescription, children }: IPageWrapperProps) => {
-    const { items } = useJobsListStore();
+    // const { items } = useJobsListStore();
 
     const seoDescription = useMemo(
       () => customDescription || baseDescription,
